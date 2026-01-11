@@ -22,6 +22,8 @@ First Cloud | AI Journey 2026"""
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false
+  disableHighlightJS = false
+  disableMermaid = false
   
 [Languages]
 [Languages.en]
