@@ -15,11 +15,11 @@ pre: " <b> 1.8. </b> "
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --------- | ------------ | --------------- | -------------- |
-| 2   | - Xây dựng entity **Food** (bảng `food`) <br>&emsp; + `name`, `caloriesPer100g`, `proteinPer100g`, `carbsPer100g`, `fatsPer100g`, `unit` <br>&emsp; + `FoodController`: CRUD + phân trang + tìm kiếm theo từ khóa | 29/09/2025 | 29/09/2025 | |
-| 3   | - Xây dựng entity **Meal** (bảng `meal`) <br>&emsp; + `userProfile (@ManyToOne)`, `date (LocalDateTime)`, `mealType (BREAKFAST/LUNCH/SNACK/DINNER)`, `note` <br>&emsp; + `MealController`: tạo, lấy theo ID, lọc theo ngày, lọc theo loại bữa | 30/09/2025 | 30/09/2025 | |
-| 4   | - Xây dựng entity **MealFood** (bảng `meal_food`) <br>&emsp; + `meal`, `food`, `quantity (gram)` <br>&emsp; + `calories`, `protein`, `carbs`, `fats` tự tính khi tạo: `quantity / 100 * per100gValue` <br>&emsp; + `MealFoodController`: thêm food vào bữa, liệt kê, xóa <br> - Xây dựng entity **DailyNutrition** + `DailyNutritionController`: tính tổng và lưu dinh dưỡng ngày | 01/10/2025 | 01/10/2025 | |
-| 5   | - Xây dựng **DietScreen** (Frontend) <br>&emsp; + Hiển thị 4 bữa hôm nay qua `ensureDailyMeals` <br>&emsp; + Mỗi bữa: danh sách food, cột calo, progress bar <br>&emsp; + Modal "Thêm thực phẩm": tìm kiếm, nhập gram, submit → `addFoodToMeal` <br>&emsp; + Progress bar tổng calo ngày <br>&emsp; + Pull-to-refresh | 02/10/2025 | 02/10/2025 | |
-| 6   | - Xây dựng **DietHistoryScreen** (Frontend) <br>&emsp; + Lịch tháng — nhấn ngày xem bữa ăn của ngày đó <br>&emsp; + Bày thực phẩm + tổng calo theo từng bữa <br> - Test toàn bộ luồng theo dõi dinh dưỡng | 03/10/2025 | 03/10/2025 | |
+| 2   | - Xây dựng entity **Food** (bảng `food`) <br>&emsp; + `name`, `caloriesPer100g`, `proteinPer100g`, `carbsPer100g`, `fatsPer100g`, `unit` <br>&emsp; + `FoodController`: CRUD + phân trang + tìm kiếm theo từ khóa | 03/03/2026 | 03/03/2026 | |
+| 3   | - Xây dựng entity **Meal** (bảng `meal`) <br>&emsp; + `userProfile (@ManyToOne)`, `date (LocalDateTime)`, `mealType (BREAKFAST/LUNCH/SNACK/DINNER)`, `note` <br>&emsp; + `MealController`: tạo, lấy theo ID, lọc theo ngày, lọc theo loại bữa | 04/03/2026 | 04/03/2026 | |
+| 4   | - Xây dựng entity **MealFood** (bảng `meal_food`) <br>&emsp; + `meal`, `food`, `quantity (gram)` <br>&emsp; + `calories`, `protein`, `carbs`, `fats` tự tính khi tạo: `quantity / 100 * per100gValue` <br>&emsp; + `MealFoodController`: thêm food vào bữa, liệt kê, xóa <br> - Xây dựng entity **DailyNutrition** + `DailyNutritionController`: tính tổng và lưu dinh dưỡng ngày | 05/03/2026 | 05/03/2026 | |
+| 5   | - Xây dựng **DietScreen** (Frontend) <br>&emsp; + Hiển thị 4 bữa hôm nay qua `ensureDailyMeals` <br>&emsp; + Mỗi bữa: danh sách food, cột calo, progress bar <br>&emsp; + Modal "Thêm thực phẩm": tìm kiếm, nhập gram, submit → `addFoodToMeal` <br>&emsp; + Progress bar tổng calo ngày <br>&emsp; + Pull-to-refresh | 06/03/2026 | 06/03/2026 | |
+| 6   | - Xây dựng **DietHistoryScreen** (Frontend) <br>&emsp; + Lịch tháng — nhấn ngày xem bữa ăn của ngày đó <br>&emsp; + Bày thực phẩm + tổng calo theo từng bữa <br> - Test toàn bộ luồng theo dõi dinh dưỡng | 07/03/2026 | 07/03/2026 | |
 
 ### Kết quả đạt được tuần 8:
 
