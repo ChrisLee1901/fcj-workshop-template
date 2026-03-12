@@ -1,13 +1,49 @@
 ---
 title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+date: 2026-01-12
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
+### Mục tiêu tuần 2:
+
+* **Backend**: Tích hợp AWS Cognito vào Spring Security. Xây dựng module `UserProfile`.
+* **Frontend**: Triển khai luồng xác thực hoàn chỉnh — từ màn hình đăng nhập đến lưu trữ token và quản lý trạng thái.
+* Thiết lập pattern xử lý token an toàn được tái sử dụng xuyên suốt ứng dụng.
+
+### Các công việc cần triển khai trong tuần này:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2   | - Nghiên cứu khái niệm AWS Cognito User Pools <br>&emsp; + Cấu hình User Pool: password policy, app clients, PKCE <br>&emsp; + Phân biệt ID Token và Access Token <br>&emsp; + JWT claims: `sub`, `cognito:groups`, `token_use` | 18/08/2025 | 18/08/2025 | <https://docs.aws.amazon.com/cognito/> |
+| 3   | - Triển khai **Spring Security** cấu hình JWT <br>&emsp; + Thêm `spring-security-oauth2-resource-server` <br>&emsp; + Cấu hình `SecurityConfig`: stateless, CSRF disabled, CORS enabled <br>&emsp; + Cài đặt Cognito issuer-uri trong `application.properties` <br>&emsp; + Viết `OAuth2TokenValidator` tự định nghĩa — từ chối token có `token_use != "access"` | 19/08/2025 | 19/08/2025 | <https://docs.spring.io/spring-security/> |
+| 3   | - Triển khai trích xuất role từ JWT <br>&emsp; + Đọc claim `cognito:groups` → chuyển thành `ROLE_<GROUP>` <br>&emsp; + Cấu hình `@PreAuthorize("hasRole('ADMIN')")` cho admin endpoints <br>&emsp; + Quy tắc phân quyền: public, authenticated, admin-only | 19/08/2025 | 19/08/2025 | |
+| 4   | - Xây dựng **UserProfile** entity & repository <br>&emsp; + Các trường: `cognitoId (UNIQUE)`, `email (UNIQUE)`, `username`, `name`, `gender`, `birthdate`, `phoneNumber`, `picture`, `emailVerified` <br>&emsp; + `UserProfileRepository` kế thừa `JpaRepository` | 20/08/2025 | 20/08/2025 | |
+| 4   | - Xây dựng **UserProfileService** & **UserProfileController** <br>&emsp; + `POST /user/sync` — upsert profile từ Cognito claims (an toàn IDOR: `cognitoSub` từ JWT `sub`) <br>&emsp; + `GET /user/{id}`, `PUT /user/{id}`, `DELETE /user/{id}` | 20/08/2025 | 20/08/2025 | |
+| 5   | - Xây dựng **LoginScreen** cho Frontend <br>&emsp; + Nút "Đăng nhập với AWS Cognito" duy nhất <br>&emsp; + Khởi động PKCE flow qua `expo-auth-session` + `expo-web-browser` <br>&emsp; + Xử lý redirect callback: đổi code → tokens <br>&emsp; + Giải mã ID Token bằng `jwt-decode` để lấy thông tin user | 21/08/2025 | 21/08/2025 | <https://docs.expo.dev/guides/authentication/> |
+| 6   | - Xây dựng **authSlice** (Redux) và lưu trữ token <br>&emsp; + State: `isAuthenticated`, `user`, `token`, `refreshToken`, `hasCompletedOnboarding` <br>&emsp; + Actions: `login`, `logout`, `completeOnboarding`, `updateUserProfile` <br>&emsp; + Lưu token vào `expo-secure-store` (mobile) / `localStorage` (web) qua `utils/storage.ts` <br> - Kết nối Axios **request interceptor**: tự động gắn `Authorization: Bearer <token>` | 22/08/2025 | 22/08/2025 | |
+
+### Kết quả đạt được tuần 2:
+
+* **Backend — Security**:
+  * Spring Security cấu hình hoàn chỉnh với AWS Cognito làm JWT issuer.
+  * `OAuth2TokenValidator` tự định nghĩa chặn ID token — chỉ Access Token được chấp nhận tại API.
+  * Phân quyền theo role hoạt động: `ROLE_ADMIN` từ Cognito group cấp quyền admin.
+  * Các quy tắc bảo mật được định nghĩa: public health check, authenticated routes, admin-only `/admin/**`.
+* **Backend — Module UserProfile**:
+  * `POST /user/sync` upsert user từ Cognito JWT claims an toàn, không có lỗ hổng IDOR.
+  * Full CRUD (`GET`, `PUT`, `DELETE`) trên `/user/{id}` với kiểm tra phân quyền.
+  * Entity `UserProfile` lưu thành công vào PostgreSQL qua JPA.
+* **Frontend — Xác thực**:
+  * `LoginScreen` hiển thị đúng; nhấn nút mở Cognito Hosted UI trong trình duyệt.
+  * PKCE code exchange hoạt động end-to-end — tokens được trả về và lưu an toàn.
+  * `authSlice` chuyển được `isAuthenticated`; `RootNavigator` điều hướng đúng stack.
+  * Axios interceptor tự gắn Bearer token cho mọi API call tiếp theo.
+
+### Kế hoạch tuần tiếp theo:
+
+* **Backend**: Xây dựng lớp cơ sở hạ tầng — `GlobalExceptionHandler`, `CorsConfig`. Triển khai module `GoalType`.
+* **Frontend**: Xây dựng nền tảng navigation — `RootNavigator`, `AuthStack`, `MainTabs` với custom tab bar, `OnboardingStack`.
 
 
 ### Mục tiêu tuần 2:

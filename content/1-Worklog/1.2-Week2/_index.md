@@ -1,13 +1,49 @@
 ---
 title: "Week 2 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-01-12
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
+### Week 2 Objectives:
+
+* **Backend**: Integrate AWS Cognito authentication into Spring Security. Build the `UserProfile` module.
+* **Frontend**: Implement the complete authentication flow — from the Login screen through token storage and state management.
+* Establish secure token handling patterns that will be reused across the entire application.
+
+### Tasks to be carried out this week:
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2   | - Study AWS Cognito User Pools concepts <br>&emsp; + User Pool configuration: password policies, app clients, PKCE <br>&emsp; + ID Token vs Access Token — difference and proper usage <br>&emsp; + Cognito JWT claims: `sub`, `cognito:groups`, `token_use` | 08/18/2025 | 08/18/2025 | <https://docs.aws.amazon.com/cognito/> |
+| 3   | - Implement **Spring Security** JWT configuration <br>&emsp; + Add `spring-security-oauth2-resource-server` dependency <br>&emsp; + Configure `SecurityConfig`: stateless sessions, CSRF disabled, CORS enabled <br>&emsp; + Set Cognito issuer-uri in `application.properties` <br>&emsp; + Write custom `OAuth2TokenValidator` — reject tokens where `token_use != "access"` | 08/19/2025 | 08/19/2025 | <https://docs.spring.io/spring-security/> |
+| 3   | - Implement role extraction from JWT <br>&emsp; + Read `cognito:groups` claim → convert to Spring `ROLE_<GROUP>` authorities <br>&emsp; + Configure `@PreAuthorize("hasRole('ADMIN')")` for admin endpoints <br>&emsp; + Define authorization rules: public endpoints, authenticated, admin-only | 08/19/2025 | 08/19/2025 | |
+| 4   | - Build **UserProfile** entity & repository <br>&emsp; + Fields: `cognitoId (UNIQUE)`, `email (UNIQUE)`, `username`, `name`, `gender`, `birthdate`, `phoneNumber`, `picture`, `emailVerified` <br>&emsp; + `UserProfileRepository` extends `JpaRepository` | 08/20/2025 | 08/20/2025 | |
+| 4   | - Build **UserProfileService** & **UserProfileController** <br>&emsp; + `POST /user/sync` — upsert profile from Cognito claims (IDOR-safe: `cognitoSub` from JWT `sub`) <br>&emsp; + `GET /user/{id}`, `PUT /user/{id}`, `DELETE /user/{id}` | 08/20/2025 | 08/20/2025 | |
+| 5   | - Build **Frontend** `LoginScreen` <br>&emsp; + Single "Sign in with AWS Cognito" button <br>&emsp; + Initiate PKCE flow via `expo-auth-session` + `expo-web-browser` <br>&emsp; + Handle redirect callback: exchange code → tokens <br>&emsp; + Decode ID Token with `jwt-decode` to extract user claims | 08/21/2025 | 08/21/2025 | <https://docs.expo.dev/guides/authentication/> |
+| 6   | - Build **authSlice** (Redux) and token storage <br>&emsp; + State: `isAuthenticated`, `user`, `token`, `refreshToken`, `hasCompletedOnboarding` <br>&emsp; + Actions: `login`, `logout`, `completeOnboarding`, `updateUserProfile` <br>&emsp; + Persist tokens to `expo-secure-store` (mobile) / `localStorage` (web) via `utils/storage.ts` <br> - Wire Axios **request interceptor**: auto-attach `Authorization: Bearer <token>` | 08/22/2025 | 08/22/2025 | |
+
+### Week 2 Achievements:
+
+* **Backend — Security**:
+  * Spring Security fully configured with AWS Cognito as JWT issuer.
+  * Custom `OAuth2TokenValidator` blocks ID tokens — only Access Tokens accepted at the API layer.
+  * Role-based access control works: `ROLE_ADMIN` group from Cognito grants admin privileges.
+  * All security rules defined: public health check, authenticated user routes, admin-only `/admin/**` routes.
+* **Backend — UserProfile module**:
+  * `POST /user/sync` correctly upserts user from Cognito JWT claims without IDOR vulnerability.
+  * Full CRUD (`GET`, `PUT`, `DELETE`) on `/user/{id}` with proper authorization checks.
+  * `UserProfile` entity persisted to PostgreSQL via JPA.
+* **Frontend — Authentication**:
+  * `LoginScreen` renders correctly; tapping the button opens Cognito Hosted UI in browser.
+  * PKCE code exchange works end-to-end — tokens returned and stored securely.
+  * `authSlice` correctly toggles `isAuthenticated`; `RootNavigator` redirects to the right stack.
+  * Axios interceptor auto-attaches Bearer token — subsequent API calls authenticated.
+
+### Next Week Plan:
+
+* **Backend**: Build the common infrastructure layer — `GlobalExceptionHandler`, `CorsConfig`. Implement the `GoalType` module (first business module).
+* **Frontend**: Build navigation foundation — `RootNavigator`, `AuthStack`, `MainTabs` with custom tab bar, `OnboardingStack`.
 
 
 ### Week 2 Objectives:

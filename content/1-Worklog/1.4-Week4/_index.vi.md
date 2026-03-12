@@ -1,13 +1,43 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+date: 2026-01-26
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
+### Mục tiêu tuần 4:
+
+* **Backend**: Xây dựng module System Workout — dữ liệu bài tập và kế hoạch mẫu do admin quản lý.
+* **Frontend**: Xây dựng các màn hình duyệt bài tập — wizard gợi ý kế hoạch và bộ chọn bài tập.
+* Thiết lập mối quan hệ `GoalType` ↔ `WorkoutPlan` ↔ `Exercise` cho tính năng gợi ý kế hoạch.
+
+### Các công việc cần triển khai trong tuần này:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2   | - Xây dựng **MuscleGroup** entity & admin CRUD <br>&emsp; + Entity: `name (UNIQUE, ≤100)`, `description (≤500)` <br>&emsp; + `AdminMuscleGroupController` với `@PreAuthorize("hasRole('ADMIN')")` <br>&emsp; + CRUD đầy đủ: `POST`, `GET /`, `GET /{id}`, `PUT /{id}`, `DELETE /{id}` | 01/09/2025 | 01/09/2025 | |
+| 3   | - Xây dựng **Exercise** entity & admin CRUD <br>&emsp; + Entity: `name (≤150)`, `description`, `equipment`, `muscleGroup (@ManyToOne)` <br>&emsp; + `AdminExerciseController`: full CRUD + filter by muscle group <br>&emsp; + Public: `GET /api/workouts/exercises`, `GET /{id}`, `GET /by-muscle-group/{id}`, `POST /custom` | 02/09/2025 | 02/09/2025 | |
+| 4   | - Xây dựng **WorkoutPlan** & **WorkoutPlanExercise** <br>&emsp; + `WorkoutPlan`: `name`, `description`, `goalType (@ManyToOne)`, `difficultyLevel`, `estimatedDurationMinutes`, `isSystemPlan` <br>&emsp; + `WorkoutPlanExercise`: lịch theo `dayOfWeek (1-7)`, `sets`, `reps`, `restSeconds`, `dayIndex`, `weekIndex`, `orderIndex` <br>&emsp; + `AdminWorkoutPlanController`: CRUD đầy đủ + filter theo goal type | 03/09/2025 | 03/09/2025 | |
+| 4   | - Mở các **public workout endpoints** qua `WorkoutController` (`/api/workouts`) <br>&emsp; + `GET /muscle-groups`, `GET /muscle-groups/{id}` <br>&emsp; + `GET /exercises`, `GET /exercises/{id}`, `GET /exercises/by-muscle-group/{id}` <br>&emsp; + `GET /plans`, `GET /plans/{id}`, `GET /plans/by-goal-type/{id}` | 03/09/2025 | 03/09/2025 | |
+| 5   | - Xây dựng **SuggestedPlanScreen** (Frontend) — wizard 3 bước <br>&emsp; + Bước 1: Chọn loại mục tiêu (gọi `GET /api/goal-types`) <br>&emsp; + Bước 2: Duyệt kế hoạch mẫu với hình ảnh và độ khó <br>&emsp; + Bước 3: Xem chi tiết kế hoạch theo ngày → clone qua `cloneFromSystemPlan` | 04/09/2025 | 04/09/2025 | |
+| 6   | - Xây dựng **PlanExercisePicker** screen (Frontend) <br>&emsp; + Liệt kê tất cả bài tập hệ thống với hình ảnh và nhóm cơ <br>&emsp; + Tìm kiếm theo tên <br>&emsp; + Khi chọn: gọi `addExerciseToPlan(planId, dayOfWeek, exerciseId)` <br> - Seed dữ liệu bài tập và nhóm cơ ban đầu qua `DatabaseSeeder` | 05/09/2025 | 05/09/2025 | |
+
+### Kết quả đạt được tuần 4:
+
+* **Backend — System Workout**:
+  * Entity `MuscleGroup` + admin CRUD hoạt động; đã seed: Ngực, Lưng, Chân, Vai, Tay, Cơ bụng.
+  * `Exercise` + admin CRUD + public read endpoints hoạt động.
+  * `WorkoutPlan` với `WorkoutPlanExercise` (lịch theo ngày, hỗ trợ multi-week qua `weekIndex`) triển khai xong.
+  * Admin endpoints được bảo vệ bởi `ROLE_ADMIN`; public read truy cập không cần auth.
+* **Frontend — Duyệt bài tập**:
+  * `SuggestedPlanScreen` hướng dẫn user qua mục tiêu → chọn kế hoạch trong 3 bước rõ ràng.
+  * `PlanExercisePicker` liệt kê bài tập với context nhóm cơ; chọn bài tập thêm vào kế hoạch user.
+* `DatabaseSeeder` seed dữ liệu nhóm cơ + bài tập ban đầu khi khởi động ứng dụng.
+
+### Kế hoạch tuần tiếp theo:
+
+* **Backend**: Xây dựng module `UserWorkoutPlan` với clone kế hoạch từ system template, soft-delete, và logic kích hoạt.
+* **Frontend**: Xây dựng `MyPlansScreen`, `CreatePlanScreen`, và `PlanEditScreen` (trình chỉnh sửa theo ngày).
 
 
 ### Mục tiêu tuần 4:

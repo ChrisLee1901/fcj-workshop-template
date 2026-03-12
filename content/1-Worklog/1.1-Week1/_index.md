@@ -1,57 +1,45 @@
 ---
 title: "Week 1 Worklog"
-date: 2024-01-01
+date: 2026-01-05
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 1 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Kick off the **myFit** project — a full-stack fitness management application.
+* Initialize project repositories for both Backend (Spring Boot) and Frontend (React Native + Expo).
+* Set up the local development environment: Java 17, PostgreSQL via Docker, Node.js, Expo CLI.
+* Agree on overall system architecture, module breakdown, and technology stack with the team.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2   | - Project kickoff: define scope, features, and MVP requirements <br>&emsp; + Core features: workout plans, nutrition tracking, body metrics, session logging <br>&emsp; + Auth via AWS Cognito <br>&emsp; + Admin panel for exercise & plan management | 08/11/2025 | 08/11/2025 | |
+| 3   | - Initialize **Backend** project with Spring Boot 3 + Maven <br>&emsp; + Scaffold with `spring-boot-starter-web`, `spring-data-jpa`, `spring-security` <br>&emsp; + Configure `pom.xml`: Flyway, Lombok, jjwt 0.11.5, AWS SDK v1 <br>&emsp; + Establish package structure: `common/`, `config/`, `module/` | 08/12/2025 | 08/12/2025 | <https://start.spring.io/> |
+| 4   | - Set up **PostgreSQL** locally with Docker Compose <br>&emsp; + Write `docker-compose.yml` with `postgres:15` service <br>&emsp; + Configure `application.properties`: datasource, JPA `ddl-auto=create-drop`, Flyway <br>&emsp; + Create `.env` / `.env.example` pattern for secrets <br> - Define `EntityBase` `@MappedSuperclass`: `id (UUID)`, `createdAt`, `updatedAt` | 08/13/2025 | 08/13/2025 | <https://docs.docker.com/compose/> |
+| 4   | - Initialize **Frontend** project: React Native + Expo ~54 with TypeScript ~5.9 <br>&emsp; + Scaffold with `npx create-expo-app --template` <br>&emsp; + Configure `tsconfig.json`, `babel.config.js`, `metro.config.js` <br>&emsp; + Install and configure NativeWind v4 + `tailwind.config.js` | 08/13/2025 | 08/13/2025 | <https://docs.expo.dev/> |
+| 5   | - Design system **entity-relationship diagram** <br>&emsp; + Entities: UserProfile, Food, Meal, Exercise, WorkoutPlan, BodyMetric, Session, Image… <br>&emsp; + Agree on relationships and cardinalities <br> - Create uniform **ApiResponse\<T\>** envelope: `code`, `message`, `result`, `timestamp`, `path` | 08/14/2025 | 08/14/2025 | |
+| 6   | - Set up **Redux Toolkit** store on Frontend <br>&emsp; + Install `@reduxjs/toolkit`, `react-redux` <br>&emsp; + Wire `store/index.ts` and `app/providers.tsx` into `App.tsx` <br> - Configure **Axios** client: base URL from `EXPO_PUBLIC_BACKEND_API_URL` <br> - Configure **TanStack React Query** v5 `QueryClient` | 08/15/2025 | 08/15/2025 | <https://redux-toolkit.js.org/> |
 
 ### Week 1 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Successfully bootstrapped both backend and frontend project skeletons running locally.
+* **Backend (Spring Boot)**:
+  * Project starts and connects to PostgreSQL via Docker Compose in one command (`docker-compose up -d`).
+  * `EntityBase` with UUID primary key and audit timestamps ready for all entities.
+  * `ApiResponse<T>` response envelope standardized across all future endpoints.
+  * Maven build passes with zero compile errors.
+* **Frontend (React Native + Expo)**:
+  * App renders on Android emulator via `npx expo start`.
+  * NativeWind v4 configured — TailwindCSS utility classes work in RN components.
+  * Redux Toolkit store and React Query `QueryClient` wired via `providers.tsx`.
+  * Axios client reads base URL from `.env` (`EXPO_PUBLIC_BACKEND_API_URL=http://localhost:8080`).
+* Docker Compose environment reproducible across team machines.
+* `.env` secret management pattern established — no hardcoded credentials in source.
 
-* Successfully created and configured an AWS Free Tier account.
+### Next Week Plan:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **Backend**: Integrate AWS Cognito — configure `SecurityConfig` with JWT resource server, write custom `OAuth2TokenValidator`, build `UserProfile` entity + `UserProfileController` with sync/CRUD endpoints.
+* **Frontend**: Implement the full Authentication flow — `LoginScreen` with PKCE OAuth via `expo-auth-session`, token storage in `expo-secure-store`, `authSlice` Redux state.

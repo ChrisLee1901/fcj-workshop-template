@@ -1,13 +1,43 @@
 ---
 title: "Worklog Tuần 7"
-date: 2024-01-01
-weight: 1
+date: 2026-02-23
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
+### Mục tiêu tuần 7:
+
+* **Backend**: Xây dựng module Media — entity `Image` với polymorphic association, tích hợp AWS S3.
+* **Frontend**: Xây dựng `SessionDetailScreen`, `SessionCalendarScreen`, và `mediaService` với image caching.
+* Hiển thị hình ảnh cho bài tập và kế hoạch tập luyện trong toàn ứng dụng.
+
+### Các công việc cần triển khai trong tuần này:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2   | - Xây dựng entity **Image** (`module/media`) <br>&emsp; + `url (≤500)`, `isThumbnail`, `food (nullable)`, `workoutPlan (nullable)`, `exercise (nullable)` <br>&emsp; + Constraint `chk_image_exclusive`: chính xác 1 trong 3 FK có giá trị (polymorphic association) <br>&emsp; + Flyway **V3**: tạo bảng `image` với constraint | 22/09/2025 | 22/09/2025 | |
+| 3   | - Xây dựng **ImageController** (`/api/images`) <br>&emsp; + `POST /` (register URL), `GET /{id}` <br>&emsp; + `GET /food/{foodId}`, `GET /workout-plan/{id}`, `GET /exercise/{id}` <br>&emsp; + `PUT /{id}`, `DELETE /{id}` <br> - Cấu hình **AWS S3** (`AwsS3Config.java`): `AmazonS3` bean, region `ap-southeast-1`, bucket từ env | 23/09/2025 | 23/09/2025 | <https://docs.aws.amazon.com/sdk-for-java/> |
+| 4   | - Xây dựng **mediaService** (Frontend) <br>&emsp; + `getImageUrl(owner, id)` — gọi `GET /api/images/{owner}/{id}` <br>&emsp; + Cache URL trong bộ nhớ + deduplication in-flight <br>&emsp; + Bulk helpers: `getFoodImageUrlMap`, `getWorkoutPlanImageUrlMap`, `getExerciseImageUrlMap` | 24/09/2025 | 24/09/2025 | |
+| 5   | - Xây dựng **SessionDetailScreen** (Frontend) <br>&emsp; + Tóm tắt buổi tập: nhóm bài tập theo `exerciseId` <br>&emsp; + Hiển thị set × rep × cân nặng cho từng bài <br>&emsp; + Format ngày giờ qua `utils/date.ts` | 25/09/2025 | 25/09/2025 | |
+| 6   | - Xây dựng **SessionCalendarScreen** (Frontend) <br>&emsp; + Lịch tháng với chấm trên ngày có buổi tập <br>&emsp; + Di chuyển tháng (mũi tên trái/phải) <br>&emsp; + Nhấn ngày để hiển thị log buổi tập bên dưới <br>&emsp; + Nhãn tiếng Việt (Thứ 2–CN, Tháng 1–12) | 26/09/2025 | 26/09/2025 | |
+
+### Kết quả đạt được tuần 7:
+
+* **Backend — Module Media**:
+  * Flyway V3 được apply với exclusive FK constraint — toàn vẹn dữ liệu polymorphic ở cấp DB.
+  * `ImageController` đăng ký URL hình ảnh và trả về đúng theo entity sở hữu.
+  * AWS S3 bean cấu hình local qua biến môi trường.
+* **Frontend — Lịch sử buổi tập**:
+  * `SessionDetailScreen` nhóm log bài tập đúng và hiển thị rõ ràng.
+  * `SessionCalendarScreen` đánh dấu ngày tập; nhấn ngày hiển log chi tiết.
+* **Frontend — Media Service**:
+  * URL hình ảnh được cache trong bộ nhớ — không gọi API trung lặp.
+  * Tile kế hoạch và danh sách bài tập hiển thị hình ảnh từ S3.
+
+### Kế hoạch tuần tiếp theo:
+
+* **Backend**: Xây dựng module Food & Nutrition — `Food`, `Meal`, `MealFood`, `DailyNutrition` với CRUD đầy đủ và tính toán dinh dưỡng.
+* **Frontend**: Xây dựng `DietScreen` với quản lý bữa ăn, tìm kiếm thực phẩm, thêm thực phẩm vào bữa.
 
 
 ### Mục tiêu tuần 7:

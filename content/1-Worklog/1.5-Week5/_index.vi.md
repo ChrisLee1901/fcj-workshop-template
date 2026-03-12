@@ -1,13 +1,45 @@
 ---
 title: "Worklog Tuần 5"
-date: 2024-01-01
-weight: 1
+date: 2026-02-02
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
+### Mục tiêu tuần 5:
+
+* **Backend**: Xây dựng module `UserWorkoutPlan` — kế hoạch cá nhân với clone từ system template, soft-delete, và logic chỉ một kế hoạch active.
+* **Frontend**: Xây dựng các màn hình quản lý kế hoạch — `MyPlansScreen`, `CreatePlanScreen`, `PlanEditScreen` với tab chỉnh sửa theo ngày.
+* Cho phép user tự quản lý lịch tập cá nhân linh hoạt.
+
+### Các công việc cần triển khai trong tuần này:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2   | - Xây dựng **UserWorkoutPlan** entity <br>&emsp; + Trường: `user (@ManyToOne)`, `name (≤150)`, `description`, `goalTypeId (UUID)`, `isActive`, `isDeleted` <br>&emsp; + Soft-delete qua `@SQLRestriction("is_deleted = false")` <br>&emsp; + Viết Flyway **V1**: tạo bảng `user_workout_plan`, `user_workout_plan_exercises` | 08/09/2025 | 08/09/2025 | |
+| 2   | - Viết Flyway **V2**: thêm cột `is_deleted BOOLEAN DEFAULT FALSE` | 08/09/2025 | 08/09/2025 | |
+| 3   | - Xây dựng **UserWorkoutPlanExercise** entity <br>&emsp; + `dayOfWeek`, `sets`, `reps`, `restSeconds`, `dayIndex`, `weekIndex`, `orderIndex` <br>&emsp; + Reference `Exercise` và `UserWorkoutPlan` | 09/09/2025 | 09/09/2025 | |
+| 3   | - Triển khai business logic trong **UserWorkoutPlanService** <br>&emsp; + `userId` luôn lấy từ `Jwt.getSubject()` — ngăn chặn IDOR <br>&emsp; + **Clone**: sao chép sâu toàn bộ `WorkoutPlanExercise` — không giữ FK về kế hoạch gốc <br>&emsp; + **Activate**: đặt `isActive=true` cho plan mục tiêu, `isActive=false` cho tất cả plan khác | 09/09/2025 | 09/09/2025 | |
+| 4   | - Xây dựng **UserWorkoutPlanController** (`/api/user-workout-plans`) <br>&emsp; + `POST /me` (tạo kế hoạch), `POST /me/clone/{systemPlanId}` (clone) <br>&emsp; + `GET /me`, `GET /me/active`, `GET /{id}` <br>&emsp; + `PUT /{id}`, `PUT /{id}/activate`, `DELETE /{id}` (soft) <br>&emsp; + CRUD bài tập trong kế hoạch | 10/09/2025 | 10/09/2025 | |
+| 5   | - Xây dựng **MyPlansScreen** (Frontend) <br>&emsp; + Liệt kê tất cả kế hoạch với badge trạng thái active <br>&emsp; + Toggle kích hoạt; xóa với `ConfirmModal` <br> - Xây dựng **CreatePlanScreen** (Frontend) <br>&emsp; + Form: tên, mô tả, dropdown goal type | 11/09/2025 | 11/09/2025 | |
+| 6   | - Xây dựng **PlanEditScreen** (Frontend) <br>&emsp; + Tab bar theo ngày (Thứ 2 - Chủ nhật) để xem bài tập từng ngày <br>&emsp; + Reorder (lên/xuống), xóa bài tập <br>&emsp; + Điến `PlanExercisePicker` để thêm bài tập | 12/09/2025 | 12/09/2025 | |
+
+### Kết quả đạt được tuần 5:
+
+* **Backend — Module UserWorkoutPlan**:
+  * Flyway V1 + V2 migrations được apply thành công.
+  * Soft-delete với `@SQLRestriction` hoạt động — kế hoạch đã xóa không bao giờ xuất hiện trong query.
+  * Clone tạo bản sao độc lập — xem xét xác nhận không có FK về source.
+  * Quy tắc một plan active được thực thi tại service layer.
+  * `userId` luôn lấy từ JWT — bảo mật IDOR hoàn toàn.
+* **Frontend — Quản lý kế hoạch**:
+  * `MyPlansScreen` hiển thị đồng bộ trạng thái active/inactive.
+  * `CreatePlanScreen` validate trước khi submit.
+  * `PlanEditScreen` theo ngày dễ dùng, sử dụng `uiSlice` để sync trạng thái.
+
+### Kế hoạch tuần tiếp theo:
+
+* **Backend**: Xây dựng module `UserWorkoutSession` và `WorkoutLog` để theo dõi buổi tập thực tế.
+* **Frontend**: Xây dựng `PlanDetailScreen` (dashboard kế hoạch active) và `WorkoutSessionScreen` (màn hình tập thực tế với Redux session state).
 
 
 ### Mục tiêu tuần 5:
