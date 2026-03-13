@@ -40,6 +40,12 @@ pre: " <b> 1.11. </b> "
   * All loading states and error messages standardized across the application.
   * Vietnamese labels complete and consistent throughout the UI.
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Learned frontend delivery architecture using CloudFront with S3 static hosting.
+* Understood HTTPS setup with ACM certificates and domain routing via Route 53.
+* Learned how AWS WAF helps mitigate common web-layer attacks.
+* Applied cache/invalidation strategy to balance fast delivery with fresh content.
 ### Next Week Plan:
 
 * Run full end-to-end integration test of the complete application (all features, all screens).

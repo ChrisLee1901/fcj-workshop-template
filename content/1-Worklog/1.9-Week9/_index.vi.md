@@ -33,6 +33,12 @@ pre: " <b> 1.9. </b> "
   * `WeightChart` hiển moving average khi có ≥7 điểm dữ liệu.
   * `BodyMetricListScreen` lưu lịch sử đo lường đầy đủ.
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Hiểu cách quản lý secrets bằng AWS Secrets Manager/SSM Parameter Store thay vì hardcode.
+* Nắm vai trò AWS KMS trong mã hóa dữ liệu nhạy cảm (at-rest) cho credential và token liên quan.
+* Biết chiến lược xoay vòng secret định kỳ để giảm rủi ro lộ thông tin truy cập.
+* Hiểu phân tách cấu hình theo môi trường (dev/staging/prod) để tránh nhầm lẫn khi deploy.
 ### Kế hoạch tuần tiếp theo:
 
 * **Backend**: Hoàn thiện pagination, cải thiện validation endpoint, viết unit test.

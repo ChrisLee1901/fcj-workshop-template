@@ -34,6 +34,12 @@ pre: " <b> 1.11. </b> "
   * `NotificationBox` tạo trải nghiệm thông báo đồng nhất toàn ứng dụng.
   * Nhãn tiếng Việt nhất quán trên tất cả màn hình.
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Hiểu kiến trúc phân phối frontend qua CloudFront + S3 static hosting để tăng tốc độ tải trang.
+* Nắm cấu hình HTTPS bằng ACM certificate và routing domain qua Route 53.
+* Biết vai trò AWS WAF trong việc giảm các tấn công phổ biến ở lớp web.
+* Hiểu chiến lược cache/invalidation để cập nhật nội dung mới mà vẫn giữ hiệu năng cao.
 ### Kế hoạch tuần tiếp theo:
 
 * Chạy kiểm thử tích hợp end-to-end toàn bộ ứng dụng.

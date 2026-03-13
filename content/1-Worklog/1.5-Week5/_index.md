@@ -39,6 +39,12 @@ pre: " <b> 1.5. </b> "
   * Reorder and remove operations reflect immediately in UI after API calls.
   * `uiSlice` (`planEditorDay`, `plansReloadKey`) keeps plan editor state in sync across navigator.
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Learned how PostgreSQL production workloads can be hosted on Amazon RDS (single-AZ baseline).
+* Understood security group and subnet isolation to restrict DB access to backend services only.
+* Learned automated snapshot/restore strategy for user-owned critical data.
+* Reinforced the need for idempotent migrations across multiple deployment environments.
 ### Next Week Plan:
 
 * **Backend**: Build the `UserWorkoutSession` and `WorkoutLog` modules for tracking live workout activity.

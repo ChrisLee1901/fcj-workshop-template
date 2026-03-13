@@ -40,6 +40,12 @@ pre: " <b> 1.2. </b> "
   * `authSlice` chuyển được `isAuthenticated`; `RootNavigator` điều hướng đúng stack.
   * Axios interceptor tự gắn Bearer token cho mọi API call tiếp theo.
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Nắm kiến trúc AWS Cognito User Pool và luồng OAuth2/OIDC với PKCE cho mobile app.
+* Hiểu sự khác nhau giữa ID Token và Access Token, và vì sao backend chỉ nên chấp nhận Access Token.
+* Biết map claim cognito:groups sang role ứng dụng để thực thi RBAC an toàn.
+* Hiểu cách thiết kế token validation theo issuer/audience/expiration để giảm rủi ro giả mạo token.
 ### Kế hoạch tuần tiếp theo:
 
 * **Backend**: Xây dựng lớp cơ sở hạ tầng — `GlobalExceptionHandler`, `CorsConfig`. Triển khai module `GoalType`.

@@ -36,6 +36,12 @@ pre: " <b> 1.5. </b> "
   * `CreatePlanScreen` validate trước khi submit.
   * `PlanEditScreen` theo ngày dễ dùng, sử dụng `uiSlice` để sync trạng thái.
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Hiểu mô hình vận hành PostgreSQL trên Amazon RDS (single AZ) cho môi trường production cơ bản.
+* Nắm cách dùng Security Group và subnet để giới hạn truy cập DB chỉ từ service backend.
+* Biết chiến lược backup snapshot tự động và khôi phục dữ liệu cho user-owned data quan trọng.
+* Hiểu vì sao migration phải idempotent để deploy an toàn qua nhiều môi trường.
 ### Kế hoạch tuần tiếp theo:
 
 * **Backend**: Xây dựng module `UserWorkoutSession` và `WorkoutLog` để theo dõi buổi tập thực tế.

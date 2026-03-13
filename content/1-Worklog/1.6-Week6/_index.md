@@ -38,6 +38,12 @@ pre: " <b> 1.6. </b> "
   * `WorkoutSuccessScreen` shows achieved stats and prevents accidental back navigation.
   * Complete workout loop tested end-to-end: plan → start session → log sets → rest timer → finish → success.
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Learned structured logging practices to improve searchability in CloudWatch Logs.
+* Identified key app metrics (latency, error rate, active sessions) for alert configuration.
+* Built monitoring mindset for real-time workout flows with actionable dashboards.
+* Learned threshold-based alarm handling and basic incident response workflow.
 ### Next Week Plan:
 
 * **Backend**: Build the Media module — `Image` entity, S3 integration, and `ImageController` for associating images with exercises, foods, and workout plans.

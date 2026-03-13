@@ -39,6 +39,12 @@ pre: " <b> 1.10. </b> "
   * Edit modal updates local state optimistically and confirms via API.
   * Logout and delete account flows both require confirmation — no accidental data loss.
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Learned backend container packaging workflow and publishing images to Amazon ECR.
+* Understood ECS Fargate as a serverless container runtime for reduced infrastructure overhead.
+* Learned task definition/service rollout concepts for safer production releases.
+* Connected CI/CD thinking with GitHub Actions build-test-deploy pipelines to AWS.
 ### Next Week Plan:
 
 * **Backend**: Final API review, Docker Compose refinement with health checks, environment variable documentation.

@@ -46,6 +46,13 @@ pre: " <b> 1.12 </b> "
   * **Redux + React Query** phân tách rõ ràng: Redux quản lý auth/session state; React Query quản lý server cache và background refetch.
   * **Hướng cải thiện tương lai**: Deploy Backend lên AWS ECS (Fargate) + ALB HTTPS; Frontend bundle lên CloudFront + S3; CI/CD qua GitHub Actions (đã scaffolded trong `.github/workflows/`).
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Nắm 5 trụ cột AWS Well-Architected và cách đối chiếu kiến trúc hiện tại của dự án.
+* Hiểu phương pháp tối ưu chi phí: right-sizing, lifecycle policy, budget alert, tắt tài nguyên không dùng.
+* Biết xây dựng kế hoạch backup/DR cơ bản (RPO/RTO) cho dữ liệu quan trọng.
+* Hiểu quy trình handover vận hành cloud: tài liệu runbook, checklist release, và incident playbook.
+
 ### Mục tiêu tuần 12:
 
 * Kết nối, làm quen với các thành viên trong First Cloud Journey.

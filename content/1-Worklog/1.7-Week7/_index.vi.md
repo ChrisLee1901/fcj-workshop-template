@@ -34,6 +34,12 @@ pre: " <b> 1.7. </b> "
   * URL hình ảnh được cache trong bộ nhớ — không gọi API trung lặp.
   * Tile kế hoạch và danh sách bài tập hiển thị hình ảnh từ S3.
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Hiểu cơ chế presigned URL trong S3 để upload/download an toàn mà không lộ AWS credentials.
+* Biết áp dụng nguyên tắc thời hạn URL ngắn để giảm rủi ro truy cập trái phép.
+* Nắm lifecycle policy (transition/expiration) để tối ưu chi phí ảnh cũ hoặc dữ liệu ít truy cập.
+* Hiểu kiến trúc media service tách biệt giúp scale độc lập với business API.
 ### Kế hoạch tuần tiếp theo:
 
 * **Backend**: Xây dựng module Food & Nutrition — `Food`, `Meal`, `MealFood`, `DailyNutrition` với CRUD đầy đủ và tính toán dinh dưỡng.

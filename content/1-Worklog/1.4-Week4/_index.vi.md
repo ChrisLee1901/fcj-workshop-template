@@ -34,6 +34,12 @@ pre: " <b> 1.4. </b> "
   * `PlanExercisePicker` liệt kê bài tập với context nhóm cơ; chọn bài tập thêm vào kế hoạch user.
 * `DatabaseSeeder` seed dữ liệu nhóm cơ + bài tập ban đầu khi khởi động ứng dụng.
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Nắm nguyên tắc thiết kế dữ liệu media để chuẩn bị lưu trữ object trên Amazon S3.
+* Biết tư duy đặt key prefix theo loại tài nguyên (exercise/plan/food) để dễ quản lý vòng đời dữ liệu.
+* Hiểu cơ bản bucket policy và quyền truy cập public/private, tránh lộ file không mong muốn.
+* Biết phân biệt metadata ứng dụng lưu DB và binary file lưu object storage để tối ưu chi phí + hiệu năng.
 ### Kế hoạch tuần tiếp theo:
 
 * **Backend**: Xây dựng module `UserWorkoutPlan` với clone kế hoạch từ system template, soft-delete, và logic kích hoạt.

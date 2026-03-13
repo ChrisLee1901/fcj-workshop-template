@@ -40,6 +40,12 @@ pre: " <b> 1.3. </b> "
   * Dữ liệu user được thu thập đầy đủ (giới tính, ngày sinh, chiều cao, cân nặng, mục tiêu, sở thích)
   * Hoàn thành onboarding dispatch `completeOnboarding()` và gọi API sync.
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Hiểu tác động của CORS khi frontend/backend tách domain, chuẩn bị cho mô hình deploy đa môi trường trên AWS.
+* Nắm cách tổ chức endpoint public/private theo định hướng tích hợp API Gateway trong tương lai.
+* Biết mô hình tách lớp xử lý lỗi tập trung giúp dễ theo dõi trên CloudWatch Logs khi lên cloud.
+* Hiểu cách chuẩn hóa response structure để thuận lợi cho observability và tracing sau này.
 ### Kế hoạch tuần tiếp theo:
 
 * **Backend**: Xây dựng module System Workout — `MuscleGroup`, `Exercise`, `WorkoutPlan`, `WorkoutPlanExercise` với admin CRUD và public read endpoints.

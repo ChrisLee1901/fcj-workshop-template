@@ -40,6 +40,12 @@ pre: " <b> 1.2. </b> "
   * `authSlice` correctly toggles `isAuthenticated`; `RootNavigator` redirects to the right stack.
   * Axios interceptor auto-attaches Bearer token — subsequent API calls authenticated.
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Learned Cognito User Pool architecture and OAuth2/OIDC PKCE flow for mobile authentication.
+* Understood the difference between ID tokens and access tokens, and why APIs should validate access tokens.
+* Learned how to map cognito:groups claims into app roles for secure RBAC.
+* Practiced issuer/audience/expiration validation patterns to reduce token abuse risks.
 ### Next Week Plan:
 
 * **Backend**: Build the common infrastructure layer — `GlobalExceptionHandler`, `CorsConfig`. Implement the `GoalType` module (first business module).

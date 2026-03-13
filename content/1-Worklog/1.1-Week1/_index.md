@@ -39,6 +39,12 @@ pre: " <b> 1.1. </b> "
 * Docker Compose environment reproducible across team machines.
 * `.env` secret management pattern established — no hardcoded credentials in source.
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Learned core AWS account setup practices: IAM users/roles, MFA, and least-privilege access design from day one.
+* Understood AWS CLI profile/region separation for dev and staging to keep team operations consistent.
+* Practiced environment-variable based secret handling to keep credentials out of source control.
+* Understood the AWS Shared Responsibility Model and how it affects application security ownership.
 ### Next Week Plan:
 
 * **Backend**: Integrate AWS Cognito — configure `SecurityConfig` with JWT resource server, write custom `OAuth2TokenValidator`, build `UserProfile` entity + `UserProfileController` with sync/CRUD endpoints.

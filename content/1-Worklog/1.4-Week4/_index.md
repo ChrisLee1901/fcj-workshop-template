@@ -36,6 +36,12 @@ pre: " <b> 1.4. </b> "
   * `PlanExercisePicker` lists all exercises with muscle group context; exercise selection adds to user plan.
 * `DatabaseSeeder` populates initial muscle group + exercise data on app start for local dev.
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Learned media architecture patterns for storing binary assets in Amazon S3.
+* Applied object key prefix strategy (exercise/plan/food) for maintainable storage organization.
+* Understood bucket policy and private/public access boundaries to avoid accidental data exposure.
+* Learned to separate metadata in relational DB from binaries in object storage for cost/performance efficiency.
 ### Next Week Plan:
 
 * **Backend**: Build the `UserWorkoutPlan` module with plan cloning from system templates, soft-delete, and activate/deactivate logic.

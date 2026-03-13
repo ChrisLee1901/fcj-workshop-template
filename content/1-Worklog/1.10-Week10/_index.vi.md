@@ -34,6 +34,12 @@ pre: " <b> 1.10. </b> "
   * Load profile từ Redux — không tốn thêm API call.
   * Đăng xuất và xóa tài khoản đều có xác nhận an toàn.
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Nắm quy trình đóng gói backend bằng Docker và đẩy image lên Amazon ECR.
+* Hiểu mô hình chạy container serverless bằng Amazon ECS Fargate, giảm gánh nặng quản trị máy chủ.
+* Biết cấu trúc task definition/service và cách rollout phiên bản mới theo chiến lược an toàn.
+* Hiểu cách nối CI/CD (GitHub Actions) với pipeline build-test-deploy lên AWS.
 ### Kế hoạch tuần tiếp theo:
 
 * **Backend**: Review lần cuối API, hoàn thiện Docker Compose với health check và tài liệu biến môi trường.

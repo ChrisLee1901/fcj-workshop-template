@@ -40,6 +40,12 @@ pre: " <b> 1.3. </b> "
   * User data collected (gender, DOB, height, weight, goals, diet prefs, workout prefs) ready to be stored in profile.
   * Onboarding completion dispatches `completeOnboarding()` and calls the backend sync endpoint.
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Understood CORS implications for split-domain frontend/backend deployments in AWS environments.
+* Learned how public/private endpoint boundaries can align with future API Gateway integration.
+* Recognized the value of centralized exception handling for better CloudWatch troubleshooting.
+* Standardized API responses with future observability and tracing in mind.
 ### Next Week Plan:
 
 * **Backend**: Build the System Workout module — `MuscleGroup`, `Exercise`, `WorkoutPlan`, `WorkoutPlanExercise` entities with admin CRUD and public read endpoints.

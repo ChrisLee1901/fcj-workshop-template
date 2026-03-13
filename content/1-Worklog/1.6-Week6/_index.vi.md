@@ -33,6 +33,12 @@ pre: " <b> 1.6. </b> "
   * `WorkoutSessionScreen` hướng dẫn user qua tất cả bài tập/set với timer nghỉ.
   * Vòng lặp tập luyện hoàn chỉnh được test end-to-end.
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Nắm cách tổ chức logging theo structured format để dễ truy vấn trong CloudWatch Logs.
+* Hiểu các metric ứng dụng quan trọng (request latency, error rate, active sessions) để tạo alarm.
+* Biết cách thiết kế dashboard giám sát cho luồng workout realtime để phát hiện sự cố sớm.
+* Hiểu quy trình cảnh báo theo ngưỡng và phản ứng sự cố cơ bản (triage, rollback, verify).
 ### Kế hoạch tuần tiếp theo:
 
 * **Backend**: Xây dựng module Media — entity `Image`, tích hợp AWS S3, `ImageController` liên kết hình ảnh với bài tập/thực phẩm/kế hoạch.

@@ -34,6 +34,12 @@ pre: " <b> 1.8. </b> "
   * Thêm food: backend tính macro → UI refresh số liệu.
   * `DietHistoryScreen` hiển thị lịch sử dinh dưỡng theo ngày chọn.
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Nắm quy trình tích hợp Amazon Bedrock Runtime và lựa chọn model theo tiêu chí latency/chi phí/chất lượng.
+* Hiểu kỹ thuật prompt engineering để định nghĩa persona fitness coach ổn định cho output.
+* Biết thiết kế guardrails ở tầng ứng dụng: giới hạn ngữ cảnh, kiểm soát input/output và fallback khi lỗi.
+* Hiểu cách quản lý quota và retry/backoff khi gọi dịch vụ AI trên cloud.
 ### Kế hoạch tuần tiếp theo:
 
 * **Backend**: Xây dựng module User Metric — `BodyMetric` và `HealthCalculation` với logic tính BMI/BMR/TDEE.

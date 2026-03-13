@@ -46,6 +46,13 @@ pre: " <b> 1.12. </b> "
   * **Redux + React Query** separation of concerns works well: Redux manages auth/session state; React Query manages server cache and background refetching.
   * **Future improvement path**: Deploy Backend to AWS ECS (Fargate) behind an ALB with HTTPS, Frontend bundled to AWS CloudFront + S3, CI/CD via GitHub Actions (already scaffolded in `.github/workflows/`).
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Learned to assess architecture against the 5 AWS Well-Architected pillars.
+* Applied cost-optimization mindset: right-sizing, lifecycle policies, budget alerts, and idle resource cleanup.
+* Learned baseline backup/DR planning using RPO/RTO targets for critical data.
+* Prepared cloud operations handover artifacts: runbooks, release checklists, and incident playbooks.
+
 
 ### Week 12 Objectives:
 

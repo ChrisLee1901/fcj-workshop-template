@@ -37,6 +37,12 @@ pre: " <b> 1.8. </b> "
   * `DietHistoryScreen` calendar correctly loads meal data for selected dates.
   * Daily calorie progress bar reflects `totalCalories / 2500` target accurately.
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Learned Bedrock Runtime integration and model selection trade-offs across latency/cost/quality.
+* Improved prompt engineering skills to keep fitness-coach persona outputs consistent.
+* Applied application-level guardrails: context limits, input/output controls, and fallback behavior.
+* Learned quota-aware retry/backoff strategy for resilient AI service calls.
 ### Next Week Plan:
 
 * **Backend**: Build the User Metric module — `BodyMetric` entity and `HealthCalculation` with BMI / BMR / TDEE computation logic.

@@ -37,6 +37,12 @@ pre: " <b> 1.9. </b> "
   * `CalorieEnergyCharts` allows toggling between BMR-only, TDEE-only, and combined view.
   * `BodyMetricListScreen` shows full measurement history with inline edit/delete.
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Learned secret management using AWS Secrets Manager/SSM Parameter Store instead of hardcoding.
+* Understood AWS KMS role in encrypting sensitive values at rest.
+* Applied secret rotation mindset to reduce long-term credential exposure risk.
+* Improved environment-specific config separation to prevent deployment mistakes.
 ### Next Week Plan:
 
 * **Backend**: Add pagination refinements, endpoint validation improvements, and write unit/integration tests for key service methods.

@@ -38,6 +38,12 @@ pre: " <b> 1.7. </b> "
   * In-flight deduplication ensures concurrent requests for the same image share a single promise.
   * Workout plan tiles and exercise list items now display associated images from S3.
 
+### AWS Knowledge Learned (Assumed Application):
+
+* Learned how S3 presigned URLs enable secure upload/download without exposing AWS credentials.
+* Applied short-lived URL expiration strategy to minimize unauthorized access risks.
+* Understood lifecycle policies (transition/expiration) to optimize media storage costs.
+* Learned how a dedicated media service architecture supports independent scaling.
 ### Next Week Plan:
 
 * **Backend**: Build the Food & Nutrition module — `Food`, `Meal`, `MealFood`, `DailyNutrition` entities with full CRUD and nutrition calculation.

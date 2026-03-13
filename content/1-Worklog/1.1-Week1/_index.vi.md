@@ -39,6 +39,12 @@ pre: " <b> 1.1. </b> "
 * Môi trường Docker Compose có thể tái tạo nhất quán trên các máy khác nhau trong nhóm.
 * Pattern quản lý secrets qua `.env` được thiết lập — không có credential hardcode trong source code.
 
+### Kiến thức AWS đã học và giả sử áp dụng cho project:
+
+* Hiểu nền tảng AWS account setup: IAM user/role, MFA, nguyên tắc least privilege để phân quyền đúng ngay từ đầu dự án.
+* Nắm cách dùng AWS CLI profile và region riêng cho dev/staging, giúp thao tác hạ tầng nhất quán giữa các thành viên.
+* Biết tách thông tin nhạy cảm khỏi source code bằng biến môi trường theo chuẩn cloud-ready.
+* Hiểu cơ bản về Shared Responsibility Model để phân định rõ trách nhiệm bảo mật giữa team và AWS.
 ### Kế hoạch tuần tiếp theo:
 
 * **Backend**: Tích hợp AWS Cognito — cấu hình `SecurityConfig` với JWT resource server, viết `OAuth2TokenValidator` tùy chỉnh, xây dựng `UserProfile` entity + `UserProfileController`.
