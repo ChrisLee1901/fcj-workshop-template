@@ -39,7 +39,7 @@ pre: " <b> 1.5. </b> "
   * Reorder and remove operations reflect immediately in UI after API calls.
   * `uiSlice` (`planEditorDay`, `plansReloadKey`) keeps plan editor state in sync across navigator.
 
-### AWS Knowledge Learned (Assumed Application):
+### AWS Knowledge Learned:
 
 * Learned core Amazon RDS concepts for PostgreSQL production usage: managed backup, maintenance windows, parameter groups, and service limitations.
 * Understood database isolation through private subnets and security groups that only permit backend services to connect.

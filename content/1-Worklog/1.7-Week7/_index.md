@@ -38,7 +38,7 @@ pre: " <b> 1.7. </b> "
   * In-flight deduplication ensures concurrent requests for the same image share a single promise.
   * Workout plan tiles and exercise list items now display associated images from S3.
 
-### AWS Knowledge Learned (Assumed Application):
+### AWS Knowledge Learned:
 
 * Learned how S3 presigned URLs support secure client upload and download without exposing long-lived AWS credentials.
 * Understood how to choose short expiration windows for sensitive URLs while still preserving acceptable UX.

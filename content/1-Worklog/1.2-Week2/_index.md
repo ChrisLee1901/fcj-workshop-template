@@ -40,7 +40,7 @@ pre: " <b> 1.2. </b> "
   * `authSlice` correctly toggles `isAuthenticated`; `RootNavigator` redirects to the right stack.
   * Axios interceptor auto-attaches Bearer token — subsequent API calls authenticated.
 
-### AWS Knowledge Learned (Assumed Application):
+### AWS Knowledge Learned:
 
 * Studied Cognito User Pools in detail: app clients, callback URLs, logout URLs, OAuth scopes, and token lifetime tradeoffs for a mobile application.
 * Understood the PKCE flow end to end, including `code_verifier`, `code_challenge`, and `S256`, and why it is essential for public clients.

@@ -34,7 +34,7 @@ pre: " <b> 1.4. </b> "
   * `PlanExercisePicker` liệt kê bài tập với context nhóm cơ; chọn bài tập thêm vào kế hoạch user.
 * `DatabaseSeeder` seed dữ liệu nhóm cơ + bài tập ban đầu khi khởi động ứng dụng.
 
-### Kiến thức AWS đã học và giả sử áp dụng cho project:
+### Kiến thức AWS đã học:
 
 * Học cách thiết kế kiến trúc media với Amazon S3 cho file nhị phân và PostgreSQL cho metadata để mỗi hệ thống lưu đúng loại dữ liệu phù hợp.
 * Xây dựng quy ước object key như `workouts/`, `exercises/`, `foods/` để phục vụ tổ chức dữ liệu, cleanup và áp lifecycle policy dễ dàng.

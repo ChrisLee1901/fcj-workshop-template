@@ -6,48 +6,62 @@ chapter: false
 pre: " <b> 1.11. </b> "
 ---
 
-### Mục tiêu tuần 11:
+### Mục tiêu Tuần 11:
 
-* **Backend**: Review API lần cuối, hoàn thiện Docker Compose sẵn sàng production, tài liệu biến môi trường.
-* **Frontend**: Xây dựng `HomeScreen` dashboard trung tâm, sửa bug còn tồn, polish UX toàn ứng dụng.
-* Đạt được ứng dụng hoàn chỉnh, tích hợp đầy đủ, sẵn sàng test cuối.
+* Thực hiện **kiểm thử tích hợp end-to-end toàn bộ ứng dụng myFit** (tất cả tính năng, tất cả màn hình).
+* Viết **tài liệu dự án đầy đủ** — README, tài liệu API, tổng quan kiến trúc.
+* **Dọn dẹp code**, loại bỏ các đoạn debug và chuẩn bị dự án cho việc bàn giao.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| 2   | - Xây dựng **HomeScreen** (Frontend) — 5 API song song khi mount <br>&emsp; + Bữa ăn hôm nay: tổng calo → progress bar vs. 2500 kcal <br>&emsp; + BMI từ `HealthCalculation` mới nhất <br>&emsp; + Chiều cao/cân nặng từ `BodyMetric` mới nhất <br>&emsp; + Tên kế hoạch tập active + link nhanh đến PlanDetail <br>&emsp; + Số buổi tập tuần này vs. mục tiêu 4 buổi | 24/03/2026 | 24/03/2026 | |
-| 3   | - Hoàn thiện **Docker Compose** <br>&emsp; + Thêm `healthcheck` trên service `postgres` (`pg_isready`) <br>&emsp; + `depends_on.db.condition: service_healthy` cho service API <br>&emsp; + Xác nhận `GET /actuator/health` hoạt động <br>&emsp; + Hoàn chỉnh `.env.example` với mô tả tất cả biến | 25/03/2026 | 25/03/2026 | |
-| 4   | - **Sửa bug** toàn diện Frontend <br>&emsp; + `WorkoutSessionScreen`: edge case hoàn thành bài tập cuối <br>&emsp; + `DietScreen`: `ensureDailyMeals` chỉ gọi 1 lần khi mount <br>&emsp; + `HealthDashboardScreen`: hiển loading khi gọi `calculateMetrics` <br>&emsp; + `BMITrendChart`: empty state khi dưới 2 điểm dữ liệu | 26/03/2026 | 26/03/2026 | |
-| 5   | - Cải thiện **Response Interceptor** (Axios `client.ts`) <br>&emsp; + Hàng đợi refresh token: nhiều request `401` cùng lúc → chỉ refresh 1 lần duy nhất <br>&emsp; + Nếu refresh thất bại: `forceLogout` xóa token + logout Redux + về Login <br>&emsp; + Xử lý `code === 4040` "user not found" → tự động `forceLogout` | 27/03/2026 | 27/03/2026 | |
-| 6   | - **Polish UX** toàn ứng dụng <br>&emsp; + Thêm `NotificationBox` thay thế native `Alert.alert` qua `installAlertProxy` <br>&emsp; + Thêm pull-to-refresh cho `HomeScreen` <br>&emsp; + Chuẩn hóa loading spinner và error state trên tất cả màn hình <br>&emsp; + Kiểm tra nhãn tiếng Việt nhất quán | 28/03/2026 | 28/03/2026 | |
+### Các nhiệm vụ thực hiện trong tuần:
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2   | - **Kiểm thử tích hợp end-to-end** — Backend <br>&emsp; + Xác minh tất cả API endpoint với input hợp lệ và không hợp lệ <br>&emsp; + Xác nhận các migration Flyway V1/V2/V3 chạy trên database mới <br>&emsp; + Docker Compose khởi động lạnh: `db` + `api` trạng thái healthy trong dưới 30s <br>&emsp; + Kiểm tra `application.properties` — đảm bảo không có giá trị chỉ dùng cho dev bị đưa vào production | 03/23/2026 | 03/23/2026 | |
+| 3   | - **Kiểm thử tích hợp end-to-end** — Frontend (6 luồng người dùng) <br>&emsp; + Luồng 1: Đăng ký → Onboard → Home Dashboard <br>&emsp; + Luồng 2: Tạo plan → Clone system plan → Đặt plan hoạt động <br>&emsp; + Luồng 3: Bắt đầu workout session → Ghi lại sets → Rest timer → Hoàn thành → Màn hình thành công <br>&emsp; + Luồng 4: Thêm thực phẩm vào 4 bữa ăn → Kiểm tra tổng lượng calo trong ngày <br>&emsp; + Luồng 5: Nhập chỉ số cơ thể → Tính BMI/BMR/TDEE → Hiển thị biểu đồ <br>&emsp; + Luồng 6: Chat với AI assistant → Bedrock phản hồi bằng tiếng Việt | 03/24/2026 | 03/24/2026 | |
+| 4   | - Viết **Backend README** (`myFit-api/README.md`) <br>&emsp; + Tổng quan dự án & sơ đồ kiến trúc (API ↔ PostgreSQL ↔ Cognito ↔ S3) <br>&emsp; + Tài liệu module: Auth, Food, SystemWorkout, UserWorkoutPlan, Session, UserMetric, Media, GoalType <br>&emsp; + Hướng dẫn cài đặt: prerequisites, biến `.env`, lệnh Docker Compose <br>&emsp; + Bảng tham chiếu API endpoint (tất cả route, method, mô tả, yêu cầu xác thực) | 03/25/2026 | 03/25/2026 | |
+| 4   | - Cập nhật **Frontend** `guide.md` <br>&emsp; + Bảng tóm tắt tech stack <br>&emsp; + Sơ đồ cấu trúc navigation (AuthStack / OnboardingStack / MainTabs) <br>&emsp; + Hướng dẫn cài đặt: `npm install`, biến `.env`, `npx expo start` <br>&emsp; + Danh sách các screen kèm mô tả tính năng <br>&emsp; + Ghi chú cấu hình AWS Cognito PKCE + Bedrock | 03/25/2026 | 03/25/2026 | |
+| 5   | - **Dọn dẹp code** — Backend <br>&emsp; + Xóa tất cả `TODO`, `FIXME`, và các câu lệnh debug `System.out.println` <br>&emsp; + Đảm bảo các phương thức public phức tạp đều có comment Javadoc <br>&emsp; + Kiểm tra cấu hình bảo mật để tránh việc lộ các route public ngoài ý muốn <br>&emsp; + Build cuối: `mvn clean package -DskipTests` → xác nhận file JAR build thành công | 03/26/2026 | 03/26/2026 | |
+| 6   | - **Dọn dẹp code** — Frontend <br>&emsp; + Xóa tất cả các câu lệnh debug `console.log` <br>&emsp; + Chạy `eslint` và sửa các cảnh báo lint còn lại <br>&emsp; + Xóa các import không sử dụng <br>&emsp; + Export cuối: `npx expo export` → xác nhận không còn lỗi TypeScript <br> - **Đánh giá dự án (retrospective)**: ghi lại bài học rút ra, các quyết định công nghệ và các cải tiến có thể thực hiện trong tương lai | 03/27/2026 | 03/27/2026 | |
 
-### Kết quả đạt được tuần 11:
+### Thành tựu Tuần 11:
 
-* **Backend — Docker Compose**:
-  * Health check PostgreSQL đảm bảo API container chờ DB sẵn sàng hoàn toàn.
-  * `.env.example` tài liệu đầy đủ 10+ biến môi trường cần thiết.
-* **Frontend — HomeScreen**:
-  * 5 API song song hoàn thành trong dưới 1.5s trên localhost.
-  * Người dùng thấy rõ tiến độ calo và buổi tập ngày/tuần ngay khi mở app.
-* **Frontend — Sửa Bug & Polish**:
-  * Các bug quan trọng được xử lý; token refresh hoạt động ổn định.
-  * `NotificationBox` tạo trải nghiệm thông báo đồng nhất toàn ứng dụng.
-  * Nhãn tiếng Việt nhất quán trên tất cả màn hình.
+* **Kiểm thử tích hợp**:
+  * Tất cả backend API endpoint đều vượt qua kiểm thử thủ công với input hợp lệ và không hợp lệ.
+  * Docker Compose khởi động lạnh ổn định — API healthy trong vòng 25 giây sau khi chạy `docker-compose up`.
+  * Flyway V1, V2, V3 migration chạy thành công trên database PostgreSQL mới.
+  * Tất cả **6 luồng người dùng** được kiểm thử end-to-end mà không có lỗi nghiêm trọng.
 
-### Kiến thức AWS đã học và giả sử áp dụng cho project:
+* **Tài liệu**:
+  * `myFit-api/README.md` bao gồm hướng dẫn cài đặt đầy đủ, tài liệu biến môi trường và mô tả tất cả endpoint.
+  * `guide.md` của frontend được cập nhật với sơ đồ navigation, danh sách screen và cấu hình dịch vụ AWS.
+  * Tổng quan kiến trúc được tài liệu hóa: Spring Boot API ↔ PostgreSQL ↔ AWS Cognito ↔ AWS S3 ↔ React Native App ↔ AWS Bedrock.
 
-* Nắm kiến trúc phân phối frontend bằng S3 static hosting kết hợp CloudFront để giảm độ trễ và tăng khả năng mở rộng.
-* Hiểu quy trình thiết lập HTTPS đầy đủ với ACM certificate và Route 53 cho DNS routing.
-* Học mô hình Origin Access Control để giữ bucket S3 ở trạng thái private nhưng vẫn phục vụ được qua CloudFront.
-* Nắm chiến lược cache key và invalidation để cân bằng giữa tốc độ phân phối và độ mới của nội dung giao diện.
-* Hiểu vai trò của AWS WAF trong việc giảm các tấn công phổ biến ở lớp web và lưu lượng bất thường.
-* Nắm cơ chế xử lý lỗi ở edge và fallback page để SPA routing hoạt động ổn định khi truy cập deep link.
-* Chuẩn hóa tư duy release frontend với cache busting, propagation control và khả năng rollback nhanh.
+* **Chất lượng code**:
+  * Không còn `console.log` hoặc `System.out.println` trong code production.
+  * Build TypeScript (`npx expo export`) hoàn thành mà không có lỗi.
+  * Maven `mvn clean package` build file JAR cuối cùng thành công.
 
-Tóm lại, tuần 11 tập trung vào lớp phân phối frontend trên AWS để chuẩn bị cho môi trường production thực tế.
+* **Đánh giá dự án — Bài học chính**:
+  * **Phòng chống IDOR** thông qua việc trích xuất `sub` từ JWT là một mẫu bảo mật quan trọng và cần được áp dụng nhất quán trong toàn bộ REST API có phạm vi người dùng.
+  * **Soft delete** với `@SQLRestriction` thân thiện với người dùng hơn so với hard delete đối với dữ liệu thuộc về người dùng — cho phép khả năng khôi phục trong tương lai.
+  * Kiến trúc **Stateless JWT** loại bỏ sự phức tạp của session phía server, đổi lại phải xử lý vấn đề thu hồi token (được giải quyết bằng forced logout + refresh queue).
+  * **React Native + NativeWind** là một sự kết hợp mạnh mẽ — cú pháp quen thuộc với TailwindCSS giúp tăng tốc đáng kể việc phát triển UI mobile.
+  * Việc tách trách nhiệm **Redux + React Query** hoạt động hiệu quả: Redux quản lý trạng thái auth/session; React Query quản lý cache dữ liệu từ server và cơ chế refetch nền.
+
+### Kiến thức AWS học được:
+
+* Thực hiện đánh giá theo mô hình **Well-Architected** dựa trên năm trụ cột: Security, Reliability, Performance Efficiency, Cost Optimization và Operational Excellence.
+* Tài liệu hóa khả năng **độ tin cậy hệ thống** thông qua kiểm tra health dependency, kế hoạch backup & restore, và các kỳ vọng thực tế về RPO/RTO.
+* Áp dụng tư duy **FinOps** bằng cách rà soát cơ hội tối ưu tài nguyên, lifecycle policies, cảnh báo ngân sách và dọn dẹp tài nguyên không sử dụng.
+* Tổng hợp checklist **tăng cường bảo mật** bao gồm kiểm tra IAM, chính sách token, phạm vi mã hóa, quản lý secret và audit logs.
+* Chuẩn bị **runbook vận hành cloud** cho deployment, rollback, phản ứng sự cố và kiểm tra vận hành định kỳ.
+* Xác định tiêu chí **sẵn sàng bàn giao** như: môi trường có thể tái tạo, tài liệu môi trường đầy đủ và ranh giới trách nhiệm rõ ràng.
+* Xây dựng **lộ trình AWS trong tương lai** bao gồm ECS + tăng cường ALB, tối ưu CloudFront, cải thiện observability và triển khai production theo từng giai đoạn.
+
+Tóm lại, tuần 11 đã chuyển các kiến thức AWS học được trong dự án thành **một bản đánh giá vận hành và kế hoạch bàn giao hệ thống**.
 
 ### Kế hoạch tuần tiếp theo:
 
-* Chạy kiểm thử tích hợp end-to-end toàn bộ ứng dụng.
-* Viết tài liệu dự án (README, API reference, sơ đồ kiến trúc).
-* Chuẩn bị demo và dọn dẹp code cho bàn giao.
+* Thực hiện **bài thuyết trình cuối cùng** cho tất cả các bên liên quan.
+* Hoàn thành phần **tự đánh giá và phản hồi**.
+* Nộp **báo cáo thực tập**.
+* **Ăn mừng hoàn thành dự án!**

@@ -33,7 +33,7 @@ pre: " <b> 1.6. </b> "
   * `WorkoutSessionScreen` hướng dẫn user qua tất cả bài tập/set với timer nghỉ.
   * Vòng lặp tập luyện hoàn chỉnh được test end-to-end.
 
-### Kiến thức AWS đã học và giả sử áp dụng cho project:
+### Kiến thức AWS đã học:
 
 * Học cách thiết kế structured logging cho cloud với các trường như severity, requestId, userId, endpoint và errorCode để lọc log nhanh trên CloudWatch.
 * Xác định các chỉ số quan trọng cho luồng workout realtime như độ trễ tạo session, tỷ lệ ghi log set thành công và tính nhất quán của active session.

@@ -1,65 +1,95 @@
 ---
-title: "Cloud Mastery 2026 #1 AI From Scratch"
-date: 2026-03-14
+title: "Tổng kết AWS re:Invent 2025 - Phiên bản Việt Nam"
+date: 2026-01-27
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
+# Báo cáo tổng kết: "AWS re:Invent 2025 Recap - Vietnam Edition"
 
-# Bài thu hoạch Sự kiện: "Ứng dụng AI Agent, Prompt Engineering và AIoT trên AWS"
+### Mục tiêu sự kiện
 
-### Mục Đích Của Sự Kiện
+- Tổng kết những thông báo và đổi mới quan trọng nhất được giới thiệu tại AWS re:Invent 2025.
+- Giúp cộng đồng developer Việt Nam nhanh chóng nắm bắt các dịch vụ AWS mới và xu hướng kiến trúc cloud hiện đại.
+- Cung cấp góc nhìn về các công nghệ cloud tiên tiến, bao gồm Generative AI, Agentic AI và hạ tầng dữ liệu thế hệ mới.
 
-- Hiểu rõ giới hạn của LLM độc lập và cách khắc phục thông qua AI Agent.
-- Nắm bắt nghệ thuật giao tiếp với AI thông qua các kỹ thuật Prompt Engineering chuẩn mực để tối ưu chi phí và chất lượng.
-- Khám phá các ứng dụng thực tế của AIoT kết hợp với các dịch vụ Cloud của AWS (IoT Core, Rekognition).
+### Các điểm nổi bật chính
 
-### Danh Sách Diễn Giả
+#### Generative AI và Agentic Systems trên AWS
 
-- **Bành Cẩm Vinh** - Speaker chủ đề Building AI Agent with Strands
-- **Nguyễn Tuấn Thịnh** - DevOps Engineer, Speaker chủ đề Automated Prompt Engineering
-- **Aiden Dinh & Trần Vũ Bảo Ngọc** - Operation Engineer (Katalon), Speaker chủ đề AIoT Projects
+Một trong những trọng tâm chính của sự kiện là sự phát triển nhanh chóng của **Generative AI và các AI Agent tự động** trong hệ sinh thái AWS.  
+Người tham dự được giới thiệu về **Amazon Bedrock** và **họ mô hình Nova**, cung cấp các foundation model được quản lý sẵn, cho phép developer dễ dàng tích hợp vào ứng dụng.
 
-### Nội Dung Nổi Bật
+Buổi chia sẻ cũng nhấn mạnh **Bedrock Agents**, một framework được thiết kế để xây dựng các hệ thống thông minh có khả năng tự động thực thi các workflow phức tạp. Các agent này hỗ trợ nhiều khả năng quan trọng:
 
-#### Xây dựng AI Agent với Strands
+- **Orchestration và quản lý Flow** để điều phối các tác vụ nhiều bước.
+- **Hệ thống Memory** cho phép agent lưu giữ thông tin ngữ cảnh.
+- **Policies và Guardrails** nhằm đảm bảo hành vi AI an toàn và được kiểm soát.
+- **Công cụ Evaluation** để theo dõi và cải thiện hiệu năng của agent.
 
-Mô hình ngôn ngữ lớn (LLM) độc lập thường gặp hạn chế do không có dữ liệu thời gian thực và thiếu khả năng tương tác với hệ thống bên ngoài. Việc sử dụng AI Agent giúp giải quyết vấn đề này với các đặc điểm:
-- **Lập luận đa bước (Multi-step reasoning):** Lập kế hoạch và thực thi các quy trình làm việc phức tạp.
-- **Tích hợp công cụ (Tool integration):** Truy cập API, cơ sở dữ liệu và các dịch vụ bên ngoài.
-- Ứng dụng framework **Strands Agents** với cơ chế **Agentic Loop** (vòng lặp gọi công cụ), kết hợp System Prompts và Knowledge Base để tự động đưa ra quyết định và phản hồi theo ngữ cảnh thay đổi.
+Những thành phần này cho phép developer xây dựng các ứng dụng AI tiên tiến có khả năng tương tác với các công cụ và nguồn dữ liệu bên ngoài.
 
-![Mô hình hoạt động của AI Agent](/images/4-Event/Agent.png "AI Agent Architecture")
+---
 
-#### Kỹ thuật Prompt Engineering Tự động
+#### SageMaker Unified Studio và các cải tiến của S3
 
-Giao tiếp với AI là một nghệ thuật. Câu lệnh (prompt) chung chung sẽ dẫn đến kết quả kém, gây lãng phí Token (tăng chi phí) và thiếu tính nhất quán.
-Một Prompt tiêu chuẩn cần có đủ 7 thành phần:
-1. **Role** (Vai trò của AI)
-2. **Instruction** (Chỉ thị rõ ràng)
-3. **Context** (Ngữ cảnh nền tảng)
-4. **Input Data** (Dữ liệu đầu vào)
-5. **Output Format** (Định dạng đầu ra mong muốn)
-6. **Examples** (Ví dụ mẫu - Few-shot)
-7. **Constraints** (Ràng buộc/Giới hạn cần tuân thủ)
+Một chủ đề quan trọng khác là sự phát triển của **môi trường phát triển machine learning trên AWS**.  
+Công cụ mới **SageMaker Unified Studio** cung cấp một workspace tập trung nơi **Data Engineer, Data Scientist và AI Engineer** có thể cộng tác trong cùng một IDE tích hợp.
 
-Kiến trúc hệ thống quản lý Prompt tối ưu trên AWS được thiết kế bao gồm: **Amazon DynamoDB** (lưu trữ với tốc độ phản hồi mili-giây), **Amazon CloudWatch** (giám sát log, độ trễ và tỷ lệ lỗi), và nền tảng **Amazon Bedrock**.
+Bên cạnh đó, nhiều cải tiến của **Amazon S3** cũng được giới thiệu:
 
-![Cấu trúc Prompt và Kiến trúc AWS](/images/4-Event/prompt.png "Prompt Engineering & AWS")
+- **S3 Tables** cho phép lưu trữ dữ liệu gốc bằng định dạng bảng **Apache Iceberg**, giúp đơn giản hóa các workflow phân tích dữ liệu quy mô lớn.
+- **S3 Vector** cung cấp khả năng lưu trữ vector tích hợp sẵn, giúp giảm đáng kể chi phí quản lý embedding so với các vector database truyền thống.
 
-#### Dự án AIoT: Quản lý Tủ đồ Thông minh (Smart Locker)
+Những cập nhật này cho thấy nỗ lực của AWS trong việc hợp nhất lưu trữ dữ liệu, phân tích dữ liệu và phát triển AI trên một nền tảng duy nhất.
 
-Giải quyết bài toán mượn đồ thủ công tại các câu lạc bộ bằng hệ thống tủ đồ tự động:
-- **Phần cứng (Hardware):** Sử dụng Raspberry Pi làm Controller/MQTT Broker nội bộ; Arduino thu thập dữ liệu cảm biến; kết hợp Reed Switch, RFID Card Reader và Camera.
-- **Tích hợp AWS Cloud:** - **AWS IoT Core:** Đóng vai trò trung tâm định tuyến các sự kiện cảm biến (quét RFID, mở cửa) đến Lambda và DynamoDB, giúp mở rộng mà không phụ thuộc server cục bộ.
-  - **AWS Rekognition:** Phân tích hình ảnh, so sánh khuôn mặt người mượn với cơ sở dữ liệu thành viên để cấp quyền truy cập.
+---
 
-![Sơ đồ kiến trúc phần cứng và AWS cho dự án AIoT](/images/4-Event/AIot.png "AIoT Smart Locker Architecture")
+#### OpenSearch và Agentic Search
 
-#### Một số hình ảnh khi tham gia sự kiện
+Sự kiện cũng giới thiệu các khả năng mới của **OpenSearch Serverless**, đặc biệt là khả năng tích hợp với các hệ thống AI hiện đại.
 
-![Ảnh check-in sự kiện](/images/4-Event/event1a.jpg "Check-in")
-![Ảnh chụp cùng diễn giả](/images/4-Event/event1b.jpg "Chụp cùng diễn giả")
+Một số khái niệm quan trọng bao gồm:
 
-> Tổng thể, sự kiện không chỉ mang lại cái nhìn sâu sắc về các xu hướng công nghệ AI hiện đại như Agent và Prompt Engineering, mà còn cung cấp kiến thức thực tiễn về cách kết hợp phần cứng IoT với hạ tầng linh hoạt của AWS để giải quyết các bài toán thực tế.
+- Tích hợp với **Model Context Protocol (MCP)**.
+- Khái niệm **Agentic Memory**, cho phép hệ thống AI lưu trữ và tận dụng tri thức từ quá trình tìm kiếm.
+- Triển khai các **agent chuyên biệt** phục vụ cho các tác vụ phân tích dữ liệu.
+
+Một demo trực tiếp đã minh họa cách một **Flow Agent** có thể tự động phân tích dữ liệu bán hàng và trích xuất insight bằng cách tương tác với hệ thống tìm kiếm và các công cụ phân tích.
+
+---
+
+#### Advanced RAG và Multimodal AI
+
+Ngoài các ứng dụng AI dựa trên văn bản truyền thống, sự kiện cũng khám phá sự phát triển của **Retrieval-Augmented Generation (RAG)** theo hướng **đa phương thức (multimodal)**.
+
+Các công nghệ quan trọng được thảo luận bao gồm:
+
+- **Nova Multimodal Embeddings**, cho phép chuyển đổi hình ảnh và video thành vector.
+- **Bedrock Data Automation**, giúp tự động trích xuất và cấu trúc thông tin từ các nguồn dữ liệu đa phương tiện.
+
+Những đổi mới này cho phép hệ thống AI làm việc với nhiều loại dữ liệu hơn như **hình ảnh, video và âm thanh**, mở rộng đáng kể khả năng của các ứng dụng thông minh.
+
+---
+
+#### Hạ tầng AI và chuyên sâu về SageMaker
+
+Phiên cuối cùng tập trung vào **hạ tầng cần thiết để huấn luyện và triển khai các hệ thống AI quy mô lớn**.
+
+Một số công cụ trong hệ sinh thái **SageMaker** được giới thiệu:
+
+- **SageMaker HyperPod**, được thiết kế để quản lý các cụm GPU lớn phục vụ workload deep learning.
+- **SageMaker MLflow**, hỗ trợ theo dõi thí nghiệm và quản lý vòng đời của các mô hình machine learning.
+- **Khả năng streaming hai chiều**, cho phép xây dựng các ứng dụng AI **Voice-to-Voice theo thời gian thực**.
+
+Những tính năng này cho thấy AWS đang tập trung vào việc cung cấp hạ tầng có khả năng mở rộng cho thế hệ hệ thống AI tiếp theo.
+
+---
+
+#### Một số hình ảnh tại sự kiện
+
+![Check-in sự kiện](/images/4-Event/event2a.jpg "Check-in")
+![Giao lưu với người tham dự](/images/4-Event/event2b.jpg "Networking")
+
+> Nhìn chung, sự kiện đã mang lại cái nhìn tổng quan toàn diện về những thông báo quan trọng tại AWS re:Invent 2025, đặc biệt trong các lĩnh vực Generative AI, kiến trúc agent-based và nền tảng dữ liệu hiện đại. Các phiên chia sẻ cũng cung cấp nhiều insight thực tế về cách áp dụng các dịch vụ AWS vào các hệ thống thực tế như kiến trúc NutriTrack, đồng thời mang đến cơ hội để người tham dự kết nối trực tiếp với các AWS Solution Architect và cộng đồng cloud địa phương.

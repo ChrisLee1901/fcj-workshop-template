@@ -1,64 +1,95 @@
 ---
-title: "Cloud Mastery 2026 #1 AI From Scratch"
-date: 2026-03-14
+title: "AWS re:Invent 2025 Recap - Vietnam Edition"
+date: 2026-01-27
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Summary Report: "AI Agents, Prompt Engineering & AIoT on AWS"
+# Summary Report: "AWS re:Invent 2025 Recap - Vietnam Edition"
 
 ### Event Objectives
 
-- Understand the limitations of standalone LLMs and how to overcome them using AI Agents.
-- Master the art of communicating with AI through proper Prompt Engineering to optimize costs and output quality.
-- Explore practical applications of AIoT integrated with AWS Cloud services (IoT Core, Rekognition).
-
-### Speakers
-
-- **Banh Cam Vinh** - Speaker on Building AI Agent with Strands
-- **Nguyen Tuan Thinh** - DevOps Engineer, Speaker on Automated Prompt Engineering
-- **Aiden Dinh & Tran Vu Bao Ngoc** - Operation Engineers (Katalon), Speakers on AIoT Projects
+- Review the most important announcements and innovations introduced at AWS re:Invent 2025.
+- Help the Vietnamese developer community quickly understand new AWS services and architectural trends.
+- Provide insights into modern cloud technologies including Generative AI, Agentic AI, and next-generation data infrastructure.
 
 ### Key Highlights
 
-#### Building AI Agent with Strands
+#### Generative AI and Agentic Systems on AWS
 
-Standalone Large Language Models (LLMs) often face limitations due to a lack of real-time data and the inability to interact with external systems. AI Agents resolve this by providing:
-- **Multi-step reasoning:** Planning and executing complex workflows.
-- **Tool integration:** Accessing APIs, databases, and external services.
-- Leveraging the **Strands Agents** framework with an **Agentic Loop** (tool calling mechanism), combining System Prompts and Knowledge Bases to make autonomous decisions and adapt dynamically.
+One of the main focuses of the event was the rapid development of **Generative AI and autonomous AI Agents** within the AWS ecosystem.  
+Participants were introduced to **Amazon Bedrock** and the **Nova model family**, which provide managed foundation models that developers can easily integrate into applications.
 
-![AI Agent Workflow](/images/4-Event/Agent.png "AI Agent Architecture")
+The session also highlighted **Bedrock Agents**, a framework designed to build intelligent systems capable of executing complex workflows autonomously. These agents support several important capabilities:
 
-#### Automated Prompt Engineering
+- **Orchestration and Flow management** for coordinating multi-step tasks.
+- **Memory systems** that allow agents to retain contextual information.
+- **Policies and Guardrails** to ensure safe and controlled AI behavior.
+- **Evaluation tools** for monitoring and improving agent performance.
 
-Communicating with AI is an art. Generic prompts lead to poor results, wasted Tokens (increasing costs), and inconsistent outputs. 
-A standard, high-quality Prompt should contain 7 core components:
-1. **Role** (Persona for the AI)
-2. **Instruction** (Specific task)
-3. **Context** (Background information)
-4. **Input Data** (Information to process)
-5. **Output Format** (Expected structure)
-6. **Examples** (Few-shot demonstrations)
-7. **Constraints** (Guidelines or limitations to follow)
+These components enable developers to build advanced AI-driven applications that can interact with external tools and data sources.
 
-The optimized AWS architecture for managing prompts includes **Amazon DynamoDB** (for millisecond response storage), **Amazon CloudWatch** (for monitoring logs, latency, and errors), and **Amazon Bedrock**.
+---
 
-![Prompt Structure and AWS Architecture](/images/4-Event/prompt.png "Prompt Engineering & AWS")
+#### SageMaker Unified Studio and S3 Innovations
 
-#### AIoT Projects: Smart Locker Management
+Another important topic was the evolution of the **machine learning development environment on AWS**.  
+The newly introduced **SageMaker Unified Studio** provides a centralized workspace where **Data Engineers, Data Scientists, and AI Engineers** can collaborate within a single integrated IDE.
 
-Solving the manual borrowing process in clubs with an automated smart locker system:
-- **Hardware:** Using Raspberry Pi as the Main Controller and local MQTT Broker; Arduino for sensor data collection; integrated with Reed Switches, RFID Card Readers, and Cameras.
-- **AWS Cloud Integration:** - **AWS IoT Core:** Acts as the central hub routing sensor events (RFID scans, door states) to Lambda and DynamoDB, enabling scalability without a local server.
-  - **AWS Rekognition:** Performs facial recognition, comparing captured images with the member database to authorize access.
+In addition, several enhancements to **Amazon S3** were presented:
 
-![Hardware and AWS Architecture for AIoT](/images/4-Event/AIot.png "AIoT Smart Locker Architecture")
+- **S3 Tables** enable native storage using the **Apache Iceberg** table format, simplifying large-scale analytics workflows.
+- **S3 Vector** introduces built-in vector storage capabilities, which significantly reduce the cost of managing embeddings compared to traditional vector databases.
+
+These updates demonstrate AWS’s effort to unify data storage, analytics, and AI development in a single platform.
+
+---
+
+#### OpenSearch and Agentic Search
+
+The event also introduced new capabilities of **OpenSearch Serverless**, particularly its integration with modern AI systems.
+
+Key concepts included:
+
+- Integration with **Model Context Protocol (MCP)**.
+- The concept of **Agentic Memory**, allowing AI systems to retain and utilize search knowledge.
+- Deployment of **specialized agents** designed for data analysis tasks.
+
+A live demonstration showed how a **Flow Agent** could automatically analyze sales data and extract insights by interacting with the search system and analytical tools.
+
+---
+
+#### Advanced RAG and Multimodal AI
+
+Beyond traditional text-based AI applications, the event explored the evolution of **Retrieval-Augmented Generation (RAG)** toward **multimodal capabilities**.
+
+Important technologies discussed included:
+
+- **Nova Multimodal Embeddings**, which convert images and videos into vector representations.
+- **Bedrock Data Automation**, enabling automatic extraction and structuring of information from multimedia sources.
+
+These innovations allow AI systems to work with a much broader range of data types such as **images, videos, and audio**, expanding the possibilities for intelligent applications.
+
+---
+
+#### AI Infrastructure and SageMaker Deep Dive
+
+The final session focused on the infrastructure required to train and deploy large-scale AI systems.
+
+Several tools within the **SageMaker ecosystem** were introduced:
+
+- **SageMaker HyperPod**, designed for managing large GPU clusters used in deep learning workloads.
+- **SageMaker MLflow**, supporting experiment tracking and lifecycle management of machine learning models.
+- **Bi-directional streaming capabilities**, which enable real-time **Voice-to-Voice AI applications**.
+
+These features highlight AWS’s focus on providing scalable infrastructure for the next generation of AI systems.
+
+---
 
 #### Some event photos
 
-![Event Check-in](/images/4-Event/event1a.jpg "Check-in")
-![Photo with speakers](/images/4-Event/event1b.jpg "Networking")
+![Event Check-in](/images/4-Event/event2a.jpg "Check-in")
+![Networking with attendees](/images/4-Event/event2b.jpg "Networking")
 
-> Overall, the event not only provided deep insights into modern AI trends like Agents and Prompt Engineering but also offered practical knowledge on how to combine IoT hardware with the flexible AWS infrastructure to solve real-world problems.
+> Overall, the event provided a comprehensive overview of the major announcements from AWS re:Invent 2025, particularly in the areas of Generative AI, agent-based architectures, and modern data platforms. The sessions also offered practical insights into AWS services that could be applied to real-world systems such as the NutriTrack architecture, while giving participants the opportunity to connect directly with AWS Solution Architects and members of the local cloud community.

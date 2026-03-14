@@ -33,7 +33,7 @@ pre: " <b> 1.9. </b> "
   * `WeightChart` hiển moving average khi có ≥7 điểm dữ liệu.
   * `BodyMetricListScreen` lưu lịch sử đo lường đầy đủ.
 
-### Kiến thức AWS đã học và giả sử áp dụng cho project:
+### Kiến thức AWS đã học:
 
 * Nắm phương pháp quản lý secret bằng AWS Secrets Manager hoặc SSM Parameter Store thay cho việc chia sẻ plaintext kéo dài.
 * Hiểu nền tảng AWS KMS gồm mã hóa at-rest, key policy và quan hệ giữa IAM với quyền sử dụng key.

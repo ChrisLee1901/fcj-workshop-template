@@ -39,7 +39,7 @@ pre: " <b> 1.1. </b> "
 * Môi trường Docker Compose có thể tái tạo nhất quán trên các máy khác nhau trong nhóm.
 * Pattern quản lý secrets qua `.env` được thiết lập — không có credential hardcode trong source code.
 
-### Kiến thức AWS đã học và giả sử áp dụng cho project:
+### Kiến thức AWS đã học:
 
 * Nắm cách thiết lập tài khoản AWS theo hướng production ngay từ đầu: bật MFA, tách quyền quản trị, và thiết kế IAM theo nguyên tắc least privilege cho cả lập trình viên lẫn CI.
 * Hiểu cách chia định danh theo đúng mục đích sử dụng: người dùng thao tác thủ công, role deploy, và role runtime của ứng dụng để giảm blast radius.

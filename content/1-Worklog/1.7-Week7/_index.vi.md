@@ -34,7 +34,7 @@ pre: " <b> 1.7. </b> "
   * URL hình ảnh được cache trong bộ nhớ — không gọi API trung lặp.
   * Tile kế hoạch và danh sách bài tập hiển thị hình ảnh từ S3.
 
-### Kiến thức AWS đã học và giả sử áp dụng cho project:
+### Kiến thức AWS đã học:
 
 * Hiểu cách dùng presigned URL của S3 để client upload hoặc download file an toàn mà không cần cầm credential AWS trực tiếp.
 * Biết cách chọn thời hạn presigned URL ngắn cho tài nguyên nhạy cảm nhưng vẫn cân bằng được trải nghiệm người dùng.

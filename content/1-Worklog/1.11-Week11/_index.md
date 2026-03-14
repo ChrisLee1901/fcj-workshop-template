@@ -8,52 +8,57 @@ pre: " <b> 1.11. </b> "
 
 ### Week 11 Objectives:
 
-* **Backend**: Final API review, Docker Compose production-readiness, and complete environment variable documentation.
-* **Frontend**: Build `HomeScreen` as the central dashboard, resolve all outstanding bugs, and polish the overall UX across the app.
-* Achieve a fully functional, integrated application ready for final testing.
+* Conduct full end-to-end integration testing of the entire myFit application (all features, all screens).
+* Write comprehensive project documentation — README, API reference, architecture overview.
+* Clean up code, remove debug artifacts, and prepare the project for handoff.
 
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | ---- | ---------- | --------------- | ------------------ |
-| 2   | - Build **HomeScreen** (Frontend) — 5 parallel data fetches on mount <br>&emsp; + Today’s meals: sum MealFood calories → daily calorie progress bar vs. 2500 kcal target <br>&emsp; + Latest `HealthCalculation` → show BMI <br>&emsp; + Latest `BodyMetric` → show current height/weight <br>&emsp; + Active workout plan name → quick link to PlanDetail <br>&emsp; + This-week session count → weekly progress vs. 4 sessions target | 03/24/2026 | 03/24/2026 | |
-| 3   | - Backend **Docker Compose** final refinements <br>&emsp; + Add `healthcheck` to `postgres` service: `pg_isready` with `interval`, `timeout`, `retries` <br>&emsp; + Add `depends_on.db.condition: service_healthy` to API service <br>&emsp; + Verify `Spring Actuator` `/actuator/health` liveness + readiness probes <br>&emsp; + Complete `.env.example` with all required variables documented | 03/25/2026 | 03/25/2026 | |
-| 4   | - Comprehensive **bug fix** session across all Frontend screens <br>&emsp; + Fix `WorkoutSessionScreen`: edge case when all exercises completed before timer finishes <br>&emsp; + Fix `DietScreen`: ensure `ensureDailyMeals` not called on every render — move to `useEffect` with empty deps <br>&emsp; + Fix `HealthDashboardScreen`: loading state shown during `calculateMetrics` call <br>&emsp; + Fix `BMITrendChart`: empty state when user has fewer than 2 health calculations | 03/26/2026 | 03/26/2026 | |
-| 5   | - **Response interceptor** improvements (Axios `client.ts`) <br>&emsp; + Implement token refresh with request queue: concurrent `401` responses queued, one refresh attempted, all retried <br>&emsp; + On refresh failure: `forceLogout` clears tokens + dispatches Redux `logout` + navigates to Login <br>&emsp; + Handle `code === 4040` "user not found for cognitoId" → auto `forceLogout` | 03/27/2026 | 03/27/2026 | |
-| 6   | - **UX polish** pass across all screens <br>&emsp; + Add `NotificationBox` global alert component (replaces native `Alert.alert` via `installAlertProxy`) <br>&emsp; + Add pull-to-refresh on `HomeScreen` <br>&emsp; + Ensure consistent loading spinners and error states across all screens <br>&emsp; + Add `ActivityLevelLabels` Vietnamese display names for all enum values <br>&emsp; + Vietnamese label consistency check across navigation tabs and headings | 03/28/2026 | 03/28/2026 | |
+| 2   | - **End-to-end integration testing** — Backend <br>&emsp; + Verify all API endpoints with valid + invalid inputs <br>&emsp; + Confirm Flyway V1/V2/V3 migrations run on fresh DB <br>&emsp; + Docker Compose cold start: `db` + `api` healthy under 30s <br>&emsp; + Review `application.properties` — confirm no dev-only values leak to production | 03/23/2026 | 03/23/2026 | |
+| 3   | - **End-to-end integration testing** — Frontend (6 user journeys) <br>&emsp; + Journey 1: Register → Onboard → Home Dashboard <br>&emsp; + Journey 2: Create plan → Clone system plan → Set active plan <br>&emsp; + Journey 3: Start workout session → Log sets → Rest timer → Finish → Success screen <br>&emsp; + Journey 4: Add foods to 4 meals → Verify daily calorie total <br>&emsp; + Journey 5: Enter body metrics → BMI/BMR/TDEE calculated → Charts render <br>&emsp; + Journey 6: Chat with AI assistant → Bedrock responds in Vietnamese | 03/24/2026 | 03/24/2026 | |
+| 4   | - Write **Backend README** (`myFit-api/README.md`) <br>&emsp; + Project overview & architecture diagram (API ↔ PostgreSQL ↔ Cognito ↔ S3) <br>&emsp; + Module documentation: Auth, Food, SystemWorkout, UserWorkoutPlan, Session, UserMetric, Media, GoalType <br>&emsp; + Setup guide: prerequisites, `.env` variables, Docker Compose commands <br>&emsp; + API endpoint reference table (all routes, methods, descriptions, auth requirements) | 03/25/2026 | 03/25/2026 | |
+| 4   | - Update **Frontend** `guide.md` <br>&emsp; + Tech stack summary table <br>&emsp; + Navigation structure diagram (AuthStack / OnboardingStack / MainTabs) <br>&emsp; + Setup guide: `npm install`, `.env` variables, `npx expo start` <br>&emsp; + Screen inventory with feature descriptions <br>&emsp; + AWS Cognito PKCE + Bedrock setup notes | 03/25/2026 | 03/25/2026 | |
+| 5   | - **Code cleanup** — Backend <br>&emsp; + Remove all `TODO`, `FIXME`, debug `System.out.println` statements <br>&emsp; + Ensure public non-trivial methods have Javadoc comments <br>&emsp; + Review security config for inadvertent public route exposure <br>&emsp; + Final build: `mvn clean package -DskipTests` → confirm JAR builds cleanly | 03/26/2026 | 03/26/2026 | |
+| 6   | - **Code cleanup** — Frontend <br>&emsp; + Remove all `console.log` debug statements <br>&emsp; + Run `eslint` and fix remaining lint warnings <br>&emsp; + Remove unused imports <br>&emsp; + Final export: `npx expo export` → confirm zero TypeScript errors <br> - **Project retrospective**: document lessons learned, tech decisions in hindsight, potential future improvements | 03/27/2026 | 03/27/2026 | |
 
 ### Week 11 Achievements:
 
-* **Backend — Docker Compose**:
-  * Health check on PostgreSQL service ensures the API container waits for DB to be fully ready.
-  * `GET /actuator/health` returns `{status: UP}` with liveness/readiness sub-probes.
-  * `.env.example` fully documents all 10+ required environment variables with descriptions.
-* **Frontend — HomeScreen**:
-  * 5 parallel `Promise.all` API calls complete in under 1.5s on localhost.
-  * Daily calorie + weekly session progress indicators give users clear at-a-glance goals.
-  * BMI and body metric snapshot visible on home without navigating away.
-* **Frontend — Bug Fixes**:
-  * Workout session completion edge case resolved — app no longer freezes on final set.
-  * `ensureDailyMeals` called only once on first mount — eliminated 4 redundant API calls per render.
-  * Token refresh queue prevents logged-out flash when multiple concurrent requests get 401.
-* **Frontend — UX Polish**:
-  * `NotificationBox` replaces native alerts — consistent in-app notification style.
-  * All loading states and error messages standardized across the application.
-  * Vietnamese labels complete and consistent throughout the UI.
+* **Integration Testing**:
+  * All backend API endpoints pass manual testing with valid and invalid inputs.
+  * Docker Compose cold start reliable — API healthy within 25 seconds of `docker-compose up`.
+  * Flyway V1, V2, V3 migrations run cleanly on a fresh PostgreSQL database.
+  * All 6 user journeys tested end-to-end without critical failures.
+* **Documentation**:
+  * `myFit-api/README.md` covers full setup guide, environment variable reference, and all endpoint descriptions.
+  * Frontend `guide.md` updated with navigation diagram, screen inventory, and AWS service configuration.
+  * Architecture overview documented: Spring Boot API ↔ PostgreSQL ↔ AWS Cognito ↔ AWS S3 ↔ React Native App ↔ AWS Bedrock.
+* **Code Quality**:
+  * Zero `console.log` or `System.out.println` remaining in production paths.
+  * TypeScript build (`npx expo export`) passes with zero errors.
+  * Maven `mvn clean package` builds final JAR cleanly.
+* **Project Retrospective — Key Lessons Learned**:
+  * **IDOR prevention** via JWT `sub` extraction is a critical security pattern that must be applied consistently throughout a user-scoped REST API.
+  * **Soft delete** with `@SQLRestriction` is more user-friendly than hard delete for user-owned data — allows potential recovery.
+  * **Stateless JWT** architecture eliminates server-side session complexity at the cost of token revocation complexity (addressed via forced logout + refresh queue).
+  * **React Native + NativeWind** is a powerful combination — TailwindCSS-familiar syntax dramatically speeds up mobile UI development.
+  * **Redux + React Query** separation of concerns works well: Redux manages auth/session state; React Query manages server cache and background refetching.
 
-### AWS Knowledge Learned (Assumed Application):
+### AWS Knowledge Learned:
 
-* Learned frontend delivery architecture using S3 static hosting together with CloudFront for global caching and lower latency.
-* Studied HTTPS setup from end to end: ACM certificate issuance, validation workflow, and Route 53 DNS routing.
-* Understood the Origin Access Control model so S3 can remain private while CloudFront serves user traffic securely.
-* Learned cache-key and invalidation strategy to balance fresh UI delivery with strong CDN efficiency.
-* Studied AWS WAF as a baseline web-protection layer for common attacks and noisy traffic patterns.
-* Understood edge error handling and fallback strategies required to support SPA routing without broken deep links.
-* Practiced frontend release thinking with cache busting, controlled propagation, and rollback-friendly asset versioning.
+* Performed a Well-Architected style review using the five pillars: Security, Reliability, Performance Efficiency, Cost Optimization, and Operational Excellence.
+* Documented reliability posture through dependency health checks, backup and restore planning, and realistic RPO/RTO expectations.
+* Applied a FinOps mindset by reviewing right-sizing opportunities, lifecycle policies, budget alerts, and idle resource cleanup.
+* Consolidated a practical security hardening checklist covering IAM review, token policies, encryption coverage, secret handling, and audit logs.
+* Prepared cloud runbooks for deployment, rollback, incident response, and routine operational validation.
+* Defined handover readiness criteria such as reproducible setup, complete environment documentation, and explicit ownership boundaries.
+* Built a forward AWS roadmap including ECS plus ALB hardening, CloudFront tuning, better observability, and staged production rollout.
 
-In summary, week 11 focused on the AWS delivery layer that would make the frontend production-ready and globally accessible.
+In summary, week 11 turned the AWS topics learned during the project into an operational review and handover plan.
 
 ### Next Week Plan:
 
-* Run full end-to-end integration test of the complete application (all features, all screens).
-* Write project documentation (README, API reference, architecture diagram).
-* Prepare final demo and code cleanup for project handoff.
+* Final presentation to all stakeholders.
+* Complete self-evaluation and feedback sections.
+* Submit internship report.
+* Celebrate project completion!

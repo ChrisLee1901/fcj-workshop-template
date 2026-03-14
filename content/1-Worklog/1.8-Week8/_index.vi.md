@@ -34,7 +34,7 @@ pre: " <b> 1.8. </b> "
   * Thêm food: backend tính macro → UI refresh số liệu.
   * `DietHistoryScreen` hiển thị lịch sử dinh dưỡng theo ngày chọn.
 
-### Kiến thức AWS đã học và giả sử áp dụng cho project:
+### Kiến thức AWS đã học:
 
 * Nắm chi tiết luồng gọi Amazon Bedrock Runtime từ format request, chọn model ID đến parse response ổn định.
 * So sánh trade-off của model AI theo ba tiêu chí chính: chất lượng phản hồi, độ trễ và chi phí token trong bối cảnh fitness coach.

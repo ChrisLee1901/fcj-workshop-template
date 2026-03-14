@@ -40,7 +40,7 @@ pre: " <b> 1.2. </b> "
   * `authSlice` chuyển được `isAuthenticated`; `RootNavigator` điều hướng đúng stack.
   * Axios interceptor tự gắn Bearer token cho mọi API call tiếp theo.
 
-### Kiến thức AWS đã học và giả sử áp dụng cho project:
+### Kiến thức AWS đã học:
 
 * Nghiên cứu sâu Cognito User Pool: app client, callback URL, logout URL, OAuth scope và thời hạn token phù hợp cho ứng dụng mobile.
 * Hiểu trọn vẹn luồng PKCE với `code_verifier`, `code_challenge`, `S256`, và lý do đây là cơ chế bắt buộc cho public client.

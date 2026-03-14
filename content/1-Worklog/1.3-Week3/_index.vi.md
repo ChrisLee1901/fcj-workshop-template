@@ -40,7 +40,7 @@ pre: " <b> 1.3. </b> "
   * Dữ liệu user được thu thập đầy đủ (giới tính, ngày sinh, chiều cao, cân nặng, mục tiêu, sở thích)
   * Hoàn thành onboarding dispatch `completeOnboarding()` và gọi API sync.
 
-### Kiến thức AWS đã học và giả sử áp dụng cho project:
+### Kiến thức AWS đã học:
 
 * Hiểu tác động của CORS khi frontend và backend được triển khai trên các domain hoặc subdomain khác nhau trên cloud.
 * Nắm cơ chế preflight `OPTIONS` và các lỗi phổ biến khi cấu hình thiếu method hoặc header trong môi trường production.

@@ -6,9 +6,6 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
 **On this page**, you will need to introduce your worklog. **How** did you complete it? How many weeks did you take to complete the program? **What** did you do in those weeks?
 
@@ -34,6 +31,6 @@ Typically, and as a standard, a worklog is carried out over about 3 months (thro
 
 **Week 10:** [Bedrock AI chat, profile screen, and API quality improvements](1.10-Week10/)
 
-**Week 11:** [Home dashboard integration, bug fixes, and UX polishing](1.11-Week11/)
+**Week 11:** [UI Polish, E2E Testing, Docker Compose readiness](1.11-Week11/)
 
-**Week 12:** [End-to-end testing, documentation, handoff, and retrospective](1.12-Week12/)
+**Week 12:** [Documentation, final presentation, report submission](1.12-Week12/)

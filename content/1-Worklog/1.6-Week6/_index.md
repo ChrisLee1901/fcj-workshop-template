@@ -38,7 +38,7 @@ pre: " <b> 1.6. </b> "
   * `WorkoutSuccessScreen` shows achieved stats and prevents accidental back navigation.
   * Complete workout loop tested end-to-end: plan → start session → log sets → rest timer → finish → success.
 
-### AWS Knowledge Learned (Assumed Application):
+### AWS Knowledge Learned:
 
 * Learned structured logging design for cloud operations, including fields like severity, requestId, userId, endpoint, and errorCode for fast filtering.
 * Identified practical service indicators for the workout flow: session creation latency, log-write success rate, and active-session consistency.

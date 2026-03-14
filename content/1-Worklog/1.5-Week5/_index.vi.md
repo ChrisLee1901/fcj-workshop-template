@@ -36,7 +36,7 @@ pre: " <b> 1.5. </b> "
   * `CreatePlanScreen` validate trước khi submit.
   * `PlanEditScreen` theo ngày dễ dùng, sử dụng `uiSlice` để sync trạng thái.
 
-### Kiến thức AWS đã học và giả sử áp dụng cho project:
+### Kiến thức AWS đã học:
 
 * Nắm các khái niệm quan trọng khi vận hành PostgreSQL trên Amazon RDS: backup managed, maintenance window, parameter group và giới hạn dịch vụ.
 * Hiểu cách cô lập database qua private subnet và security group chỉ cho backend truy cập.

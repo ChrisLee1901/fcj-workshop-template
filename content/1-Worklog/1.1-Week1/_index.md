@@ -39,7 +39,7 @@ pre: " <b> 1.1. </b> "
 * Docker Compose environment reproducible across team machines.
 * `.env` secret management pattern established — no hardcoded credentials in source.
 
-### AWS Knowledge Learned (Assumed Application):
+### AWS Knowledge Learned:
 
 * Learned AWS account bootstrap in a production-minded way: MFA enforcement, admin separation, and least-privilege IAM design for both engineers and CI.
 * Understood how to split identities by purpose: human access, deployment role, and runtime application role to reduce blast radius.

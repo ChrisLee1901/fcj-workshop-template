@@ -40,7 +40,7 @@ pre: " <b> 1.3. </b> "
   * User data collected (gender, DOB, height, weight, goals, diet prefs, workout prefs) ready to be stored in profile.
   * Onboarding completion dispatches `completeOnboarding()` and calls the backend sync endpoint.
 
-### AWS Knowledge Learned (Assumed Application):
+### AWS Knowledge Learned:
 
 * Learned the cloud deployment implications of CORS when frontend and backend live on different domains or subdomains.
 * Understood preflight `OPTIONS` behavior and how misconfigured headers or methods can silently break authenticated production traffic.

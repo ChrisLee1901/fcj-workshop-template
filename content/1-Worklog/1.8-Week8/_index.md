@@ -37,7 +37,7 @@ pre: " <b> 1.8. </b> "
   * `DietHistoryScreen` calendar correctly loads meal data for selected dates.
   * Daily calorie progress bar reflects `totalCalories / 2500` target accurately.
 
-### AWS Knowledge Learned (Assumed Application):
+### AWS Knowledge Learned:
 
 * Learned the Bedrock Runtime invocation lifecycle in detail, from request body construction to stable response parsing.
 * Compared model selection tradeoffs in terms of latency, answer quality, and token cost for a fitness-coach use case.

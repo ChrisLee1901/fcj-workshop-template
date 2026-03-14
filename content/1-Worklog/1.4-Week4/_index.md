@@ -36,7 +36,7 @@ pre: " <b> 1.4. </b> "
   * `PlanExercisePicker` lists all exercises with muscle group context; exercise selection adds to user plan.
 * `DatabaseSeeder` populates initial muscle group + exercise data on app start for local dev.
 
-### AWS Knowledge Learned (Assumed Application):
+### AWS Knowledge Learned:
 
 * Learned to design media architecture with Amazon S3 for binary objects and PostgreSQL for metadata, keeping each storage system in the role it handles best.
 * Designed object key naming conventions such as `workouts/`, `exercises/`, and `foods/` to simplify organization, cleanup, and lifecycle policy targeting.

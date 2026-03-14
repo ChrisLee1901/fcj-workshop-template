@@ -3,57 +3,74 @@ title: "Worklog Tuần 12"
 date: 2026-03-30
 weight: 12
 chapter: false
-pre: " <b> 1.12 </b> "
+pre: " <b> 1.12. </b> "
 ---
 
-### Mục tiêu tuần 12:
+### Mục tiêu Tuần 12
 
-* Thực hiện kiểm thử tích hợp end-to-end toàn bộ ứng dụng myFit (tất cả tính năng, tất cả màn hình).
-* Viết tài liệu dự án đầy đủ — README, API reference, tổng quan kiến trúc.
-* Dọn dẹp code, xóa debug artifacts, chuẩn bị bàn giao dự án.
-* Nhìn lại 12 tuần thực tập: bài học kinh nghiệm, điểm mạnh và hướng cải thiện tương lai.
+* Thực hiện **bài thuyết trình cuối cùng** cho tất cả các bên liên quan.
+* Hoàn thành phần **tự đánh giá và phản hồi**.
+* **Nộp báo cáo thực tập**.
+* **Ăn mừng hoàn thành dự án** và nhìn lại hành trình đã qua.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| 2   | - **Kiểm thử tích hợp** — Backend <br>&emsp; + Kiểm tra tất cả API endpoint với input hợp lệ + không hợp lệ <br>&emsp; + Xác nhận Flyway V1/V2/V3 migration chạy trên DB mới <br>&emsp; + Docker Compose cold start: `db` + `api` healthy dưới 30 giây <br>&emsp; + Rà soát `application.properties` — không có giá trị dev nào lọt sang production | 31/03/2026 | 31/03/2026 | |
-| 3   | - **Kiểm thử tích hợp** — Frontend (6 hành trình người dùng) <br>&emsp; + Hành trình 1: Đăng ký → Onboarding → Trang chủ <br>&emsp; + Hành trình 2: Tạo kế hoạch → Clone kế hoạch system → Kích hoạt <br>&emsp; + Hành trình 3: Bắt đầu buổi tập → Log set → Timer nghỉ → Kết thúc → Màn hình Thành công <br>&emsp; + Hành trình 4: Thêm thực phẩm vào 4 bữa → Kiểm tra tổng calo <br>&emsp; + Hành trình 5: Nhập chỉ số cơ thể → BMI/BMR/TDEE tính đúng → Chart hiển thị <br>&emsp; + Hành trình 6: Chat AI → Bedrock phản hồi tiếng Việt | 01/04/2026 | 01/04/2026 | |
-| 4   | - Viết **Backend README** (`myFit-api/README.md`) <br>&emsp; + Tổng quan dự án & sơ đồ kiến trúc (API ↔ PostgreSQL ↔ Cognito ↔ S3) <br>&emsp; + Tài liệu từng module: Auth, Food, SystemWorkout, UserWorkoutPlan, Session, UserMetric, Media, GoalType <br>&emsp; + Hướng dẫn cài đặt: prerequisites, biến `.env`, lệnh Docker Compose <br>&emsp; + Bảng API endpoint reference | 02/04/2026 | 02/04/2026 | |
-| 4   | - Cập nhật **Frontend** `guide.md` <br>&emsp; + Bảng tech stack <br>&emsp; + Sơ đồ cấu trúc navigation <br>&emsp; + Hướng dẫn cài đặt: `npm install`, biến `.env`, `npx expo start` <br>&emsp; + Danh sách màn hình với mô tả tính năng <br>&emsp; + Ghi chú cấu hình AWS Cognito + Bedrock | 02/04/2026 | 02/04/2026 | |
-| 5   | - **Dọn dẹp code** — Backend <br>&emsp; + Xóa `TODO`, `FIXME`, `System.out.println` debug <br>&emsp; + Thêm Javadoc cho method public không hiển nhiên <br>&emsp; + Rà soát security config không để lộ route không mong muốn <br>&emsp; + Build cuối: `mvn clean package -DskipTests` → JAR build thành công | 03/04/2026 | 03/04/2026 | |
-| 6   | - **Dọn dẹp code** — Frontend <br>&emsp; + Xóa tất cả `console.log` <br>&emsp; + Chạy `eslint` và sửa cảnh báo lint còn lại <br>&emsp; + Xóa import không dùng <br>&emsp; + Build cuối: `npx expo export` → zero TypeScript error <br> - **Tổng kết dự án**: tài liệu bài học kinh nghiệm, quyết định kỹ thuật và hướng cải thiện tương lai | 04/04/2026 | 04/04/2026 | |
+### Các nhiệm vụ thực hiện trong tuần
 
-### Kết quả đạt được tuần 12:
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 1 | - Chuẩn bị cho **bài thuyết trình cuối** <br>&emsp; + Tổng duyệt lần cuối cùng cùng với team <br>&emsp; + Chuẩn bị video demo dự phòng cho ứng dụng myFit <br>&emsp; + Kiểm tra lại thiết lập kỹ thuật của API và Bedrock | 30/03/2026 | 30/03/2026 | [Presentation] |
+| 2 | - **Thuyết trình cuối cùng** <br>&emsp; + Trình bày **myFit** trước ban lãnh đạo FCJ <br>&emsp; + Demo trực tiếp kèm phần hỏi đáp (Q&A) <br>&emsp; + Nhận được lời khen về kiến trúc Spring Boot và AWS vững chắc | 31/03/2026 | 31/03/2026 | [Presentation Recording] |
+| 3 | - **Tự đánh giá** <br>&emsp; + Hoàn thành biểu mẫu tự đánh giá <br>&emsp; + Nhìn lại hành trình 12 tuần <br>&emsp; + Xác định các điểm mạnh kỹ thuật và các lĩnh vực cần phát triển thêm | 01/04/2026 | 01/04/2026 | [Evaluation Form] |
+| 4 | - **Phản hồi về chương trình** <br>&emsp; + Viết phản hồi chi tiết cho chương trình FCJ <br>&emsp; + Nêu bật những trải nghiệm tích cực <br>&emsp; + Đề xuất cải thiện cho các thực tập sinh trong tương lai | 02/04/2026 | 02/04/2026 | [Feedback Form] |
+| 6-7 | - **Ăn mừng & tổng kết** <br>&emsp; + Tiệc ăn mừng cùng team <br>&emsp; + Chuyển giao kiến thức và bàn giao dự án <br>&emsp; + Đăng bài trên LinkedIn về trải nghiệm thực tập | 04/04/2026 | 05/04/2026 | [Photos] |
 
-* **Kiểm thử tích hợp**:
-  * Tất cả API endpoint backend vượt qua test thủ công với input hợp lệ và không hợp lệ.
-  * Docker Compose cold start đáng tin cậy — API healthy trong 25 giây sau `docker-compose up`.
-  * Flyway V1, V2, V3 migration chạy sạch trên PostgreSQL mới.
-  * Tất cả 6 hành trình người dùng test end-to-end không có lỗi nghiêm trọng.
-* **Tài liệu**:
-  * `myFit-api/README.md` bao gồm hướng dẫn cài đặt đầy đủ, bảng biến môi trường, và mô tả endpoint.
-  * Frontend `guide.md` cập nhật sơ đồ navigation, danh sách màn hình, và cấu hình AWS.
-  * Tổng quan kiến trúc: Spring Boot API ↔ PostgreSQL ↔ AWS Cognito ↔ AWS S3 ↔ React Native ↔ AWS Bedrock.
-* **Chất lượng Code**:
-  * Zero `console.log` hay `System.out.println` còn lại trong production code.
-  * TypeScript build (`npx expo export`) không có lỗi.
-  * Maven `mvn clean package` build JAR thành công.
-* **Tổng kết dự án — Bài học kinh nghiệm**:
-  * **Ngăn chặn IDOR** qua trích xuất `sub` từ JWT là pattern bảo mật quan trọng phải áp dụng nhất quán trong REST API phân quyền theo user.
-  * **Soft delete** với `@SQLRestriction` linh hoạt hơn hard delete cho dữ liệu thuộc sở hữu người dùng — cho phép khôi phục tiềm năng.
-  * **JWT Stateless** loại bỏ phức tạp quản lý session phía server, đánh đổi bằng độ phức tạp của token revocation (giải quyết bằng forced logout + refresh queue).
-  * **React Native + NativeWind** là bộ đôi mạnh mẽ — cú pháp TailwindCSS quen thuộc tăng tốc đáng kể phát triển UI mobile.
-  * **Redux + React Query** phân tách rõ ràng: Redux quản lý auth/session state; React Query quản lý server cache và background refetch.
-  * **Hướng cải thiện tương lai**: Deploy Backend lên AWS ECS (Fargate) + ALB HTTPS; Frontend bundle lên CloudFront + S3; CI/CD qua GitHub Actions (đã scaffolded trong `.github/workflows/`).
+### Thành tựu Tuần 12
 
-### Kiến thức AWS đã học và giả sử áp dụng cho project:
+* **Bài thuyết trình cuối:**
+  * Trình bày thành công ứng dụng myFit trước các bên liên quan và mentor của FCJ.
+  * Demo trực tiếp ứng dụng React Native và tính năng AI Chat Bedrock diễn ra suôn sẻ, không gặp sự cố kỹ thuật.
 
-* Thực hiện đánh giá kiến trúc theo 5 trụ cột Well-Architected gồm Security, Reliability, Performance Efficiency, Cost Optimization và Operational Excellence.
-* Ghi nhận mức độ sẵn sàng tin cậy của hệ thống qua health check dependency, backup/restore plan và mục tiêu RPO/RTO thực tế.
-* Áp dụng tư duy FinOps bằng cách rà soát right-sizing, budget alert, lifecycle policy và dọn tài nguyên không dùng ở non-production.
-* Tổng hợp checklist hardening bảo mật gồm IAM review, token policy, secret handling, mã hóa dữ liệu và audit logging.
-* Chuẩn bị runbook vận hành cloud cho deploy, rollback, xử lý sự cố và kiểm tra định kỳ.
-* Hoàn thiện tiêu chí bàn giao như tái tạo môi trường được, tài liệu biến môi trường rõ ràng và ownership minh bạch.
-* Đề xuất roadmap AWS tiếp theo gồm tăng độ chặt ECS cộng ALB, tối ưu CloudFront, nâng mức observability và rollout theo giai đoạn.
+* **Hoàn thành dự án:**
+  * Backend myFit (Spring Boot) và Frontend (React Native) hoạt động đầy đủ và đã tích hợp hoàn chỉnh.
+  * Tất cả tài liệu đã hoàn thiện, bao gồm tài liệu API, sơ đồ kiến trúc và hướng dẫn cài đặt.
+  * Repository GitHub được tổ chức lại, dọn dẹp code.
 
-Tóm lại, tuần 12 biến toàn bộ kiến thức AWS đã học thành một khung đánh giá, vận hành và bàn giao hoàn chỉnh cho dự án.
+* **Phát triển cá nhân:**
+  * Thành thạo các dịch vụ AWS quan trọng (Cognito, S3, Bedrock, Secrets Manager).
+  * Tích lũy kinh nghiệm sâu về phát triển **full-stack end-to-end**.
+  * Cải thiện kỹ năng thuyết trình, giải quyết vấn đề và viết tài liệu kỹ thuật.
+  * Xây dựng được mạng lưới quan hệ tốt với các chuyên gia AWS và mentor.
+
+### Tổng kết toàn bộ kỳ thực tập
+
+**Các giai đoạn trong hành trình 12 tuần:**
+
+| Phase | Weeks | Thành tựu chính |
+|------|------|-----------------|
+| Nền tảng | 1-2 | Thiết lập dự án, thiết kế database, xây dựng REST API cơ bản |
+| Phát triển cốt lõi | 3-6 | Xác thực AWS Cognito, tích hợp S3 Media, System Workouts |
+| Mở rộng tính năng | 7-8 | Module Workout Sessions và theo dõi dinh dưỡng |
+| Tích hợp AI | 9-10 | Tính toán chỉ số sức khỏe, AI Fitness Coach với AWS Bedrock |
+| Tối ưu | 11 | Hoàn thiện UI, kiểm thử E2E, sẵn sàng Docker Compose |
+| Hoàn thiện | 12 | Tài liệu, thuyết trình cuối, nộp báo cáo |
+
+**Các dịch vụ AWS đã làm chủ:**
+* Amazon Cognito, Amazon S3, Amazon Bedrock
+* AWS Secrets Manager, IAM Policies, KMS
+* Lập kế hoạch kiến trúc cho ECS (Fargate), ALB, Route 53 và CloudFront
+
+**Thống kê dự án:**
+* Hơn **10 module REST API cốt lõi** được phát triển hoàn chỉnh (Auth, Food, Workout, Metrics, ...)
+* **6 luồng người dùng đầy đủ** được thiết kế và kiểm thử thành công
+* Triển khai **bộ nhớ sliding window 12 lượt hội thoại** cho AI Fitness Bot
+* Thời gian khởi động Docker Compose backend trung bình **dưới 25 giây**
+
+### Suy ngẫm cuối cùng
+
+Kỳ thực tập 12 tuần thông qua chương trình FCJ là một trải nghiệm mang tính bước ngoặt. Từ việc thiết kế các schema PostgreSQL ban đầu ở Tuần 1 cho đến khi triển khai một ứng dụng React Native tích hợp AI hoàn chỉnh ở Tuần 12, hành trình này đã giúp tôi hiểu rõ tầm quan trọng của:
+
+1. **Security by design**, đặc biệt là phòng chống IDOR, quản lý JWT stateless và tích hợp AWS Cognito một cách an toàn.
+2. **Separation of concerns** trong toàn bộ hệ thống (sử dụng Redux cho auth, React Query cho server cache và giữ cho các service layer backend sạch sẽ).
+3. **Vận hành cloud theo mô hình Well-Architected**, đảm bảo containerization ổn định và có lộ trình triển khai AWS rõ ràng.
+4. **Hợp tác nhóm và tài liệu hóa**, là chìa khóa để đảm bảo khả năng bảo trì và bàn giao dự án thành công.
+
+Tôi vô cùng biết ơn các mentor của FCJ, các AWS Solution Architect và đồng nghiệp đã giúp trải nghiệm này trở nên đáng nhớ. Đây không phải là điểm kết thúc, mà là **nền tảng vững chắc cho hành trình cloud và full-stack trong tương lai của tôi**! ☁️🚀
