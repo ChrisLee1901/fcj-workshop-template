@@ -1,9 +1,9 @@
 ---
 title: "Workshop"
 date : 2026-03-16 
-weight : 1 
+weight : 5
 chapter : false
-pre : " <b> 5.1. </b> "
+pre : " <b> 5. </b> "
 ---
 
 # Photogrammetry on AWS with RealityCapture and EC2
